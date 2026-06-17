@@ -1,0 +1,471 @@
+﻿
+                        <div class="sb-user-tier" data-tr="tier-family-office">Family Office</div>
+                    <div class="sb-section" data-tr="sb-section-overview">Overview</div>
+                        <span data-tr="sb-dashboard">Dashboard</span>
+                        <span data-tr="sb-portfolio">My Portfolio</span>
+                        <span data-tr="sb-distributions">Distributions</span>
+                    <div class="sb-section" data-tr="sb-section-invest">Invest</div>
+                        <span data-tr="sb-universe">Universe of Assets</span>
+                    <div class="sb-section" data-tr="sb-section-tokenise">Tokenise</div>
+                        <span data-tr="sb-tokenise-asset">Tokenise an Asset</span>
+                        <span data-tr="sb-my-issuances">My Issuances</span>
+                    <div class="sb-section" data-tr="sb-section-account">Account</div>
+                        <span data-tr="sb-documents">Documents</span>
+                        <span data-tr="sb-kyc">KYC Status</span>
+                    <span class="sb-logout" onclick="logout()" data-tr="sb-signout">Sign Out</span>
+                    <div class="topbar-title" id="topbar-title" data-tr="panel-dashboard">Dashboard</div>
+                        <div class="tb-pill" data-tr="topbar-live">● Live</div>
+                                <div class="sc-label" data-tr="db-portfolio-value">Portfolio Value</div>
+                                <div class="sc-sub sc-up" data-tr="db-portfolio-value-sub">↑ +2.4% this month</div>
+                                <div class="sc-label" data-tr="db-active-positions">Active Positions</div>
+                                <div class="sc-sub" data-tr="db-active-positions-sub">Across 4 asset classes</div>
+                                <div class="sc-label" data-tr="db-ytd-income">YTD Income</div>
+                                <div class="sc-sub sc-up" data-tr="db-ytd-income-sub">↑ Distributions received</div>
+                                <div class="sc-label" data-tr="db-pending-kyc">Pending KYC</div>
+                                <div class="sc-val" style="font-size:22px;color:var(--green)" 
+data-tr="status-verified">Verified</div>
+                                <div class="sc-sub" data-tr="db-full-access">Full access active</div>
+                                    <div class="sec-title" data-tr="db-recent-activity">Recent Activity</div>
+                                            <th data-tr="tbl-header-asset">Asset</th>
+                                            <th data-tr="tbl-header-type">Type</th>
+                                            <th data-tr="tbl-header-amount">Amount</th>
+                                            <th data-tr="tbl-header-date">Date</th>
+                                            <th data-tr="tbl-header-status">Status</th>
+                                            <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
+                                            <td data-tr="db-act-purchase">Purchase</td>
+                                            <td data-tr="db-date-feb28">Feb 28</td>
+                                            <td><span class="badge badge-g" 
+data-tr="status-complete">Complete</span></td>
+                                            <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
+                                            <td data-tr="db-act-subscription">Subscription</td>
+                                            <td data-tr="db-date-feb22">Feb 22</td>
+                                            <td><span class="badge badge-g" 
+data-tr="status-complete">Complete</span></td>
+                                            <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
+                                            <td data-tr="db-act-fractional">Fractional</td>
+                                            <td data-tr="db-date-feb14">Feb 14</td>
+                                            <td><span class="badge badge-g" 
+data-tr="status-complete">Complete</span></td>
+                                            <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
+                                            <td data-tr="db-act-income">Income</td>
+                                            <td data-tr="db-date-feb01">Feb 1</td>
+                                            <td><span class="badge badge-b" 
+data-tr="status-distribution">Distribution</span></td>
+                                    <div class="sec-title" data-tr="db-upcoming-dist">Upcoming Distributions</div>
+                                            <div class="di-date" data-tr="db-date-mar15">Mar 15</div>
+                                                <div class="di-name" data-tr="db-asset-riviera">Riviera Villa — 
+Nice</div>
+                                                <div class="di-sub" data-tr="db-q1-rental-yield">Q1 Rental Yield</div>
+                                            <div class="di-date" data-tr="db-date-mar31">Mar 31</div>
+                                                <div class="di-name" data-tr="db-asset-credit-ii">Global Credit Opp. 
+II</div>
+                                                <div class="di-sub" data-tr="db-monthly-coupon">Monthly Coupon</div>
+                                            <div class="di-date" data-tr="db-date-apr01">Apr 1</div>
+                                                <div class="di-name" data-tr="db-asset-templar">Templar Fund III</div>
+                                                <div class="di-sub" data-tr="db-quarterly-report">Quarterly 
+Report</div>
+                                        <div class="di-amt" style="color:var(--gold)" data-tr="db-report">Report</div>
+                            <div class="sec-title" data-tr="db-notifications">Platform Notifications</div>
+                            <button class="sec-action" data-tr="db-mark-all-read">Mark all read</button>
+                                <div class="notif-text" data-tr="notif-1-text"><strong>New Offering:</strong> Maison 
+Blanche — Paris 8th Arrondissement. Prime residential. Minimum €200K. Closes 31 March 2025.</div>
+                                <div class="notif-time" data-tr="time-2h-ago">2 hours ago</div>
+                                <div class="notif-text" data-tr="notif-2-text"><strong>Distribution Received:</strong> 
+$12,400 from Global Credit Opportunities II has been credited to your account.</div>
+                                <div class="notif-time" data-tr="time-yesterday">Yesterday</div>
+                                <div class="notif-text" data-tr="notif-3-text"><strong>KYC Renewal:</strong> Your 
+annual compliance review is due in 45 days. No action required yet — our team will be in contact.</div>
+                                <div class="notif-time" data-tr="time-3d-ago">3 days ago</div>
+                                <div class="sc-label" data-tr="port-total-aum">Total AUM</div>
+                                <div class="sc-sub sc-up" data-tr="port-total-aum-sub">↑ +8.3% YTD</div>
+                                <div class="sc-label" data-tr="port-real-estate">Real Estate</div>
+                                <div class="sc-sub" data-tr="port-real-estate-sub">43% allocation</div>
+                                <div class="sc-label" data-tr="port-private-credit">Private Credit</div>
+                                <div class="sc-sub" data-tr="port-private-credit-sub">29% allocation</div>
+                                <div class="sc-label" data-tr="port-other-assets">Other Assets</div>
+                                <div class="sc-sub" data-tr="port-other-assets-sub">28% allocation</div>
+                            <div class="port-chart-title" data-tr="port-perf-title">Portfolio Performance — 12 
+Months</div>
+                                    <div class="tooltip" data-tr="port-chart-mar">Mar: $4.41M</div>
+                                    <div class="tooltip" data-tr="port-chart-apr">Apr: $4.44M</div>
+                                    <div class="tooltip" data-tr="port-chart-may">May: $4.47M</div>
+                                    <div class="tooltip" data-tr="port-chart-jun">Jun: $4.45M</div>
+                                    <div class="tooltip" data-tr="port-chart-jul">Jul: $4.51M</div>
+                                    <div class="tooltip" data-tr="port-chart-aug">Aug: $4.54M</div>
+                                    <div class="tooltip" data-tr="port-chart-sep">Sep: $4.52M</div>
+                                    <div class="tooltip" data-tr="port-chart-oct">Oct: $4.58M</div>
+                                    <div class="tooltip" data-tr="port-chart-nov">Nov: $4.56M</div>
+                                    <div class="tooltip" data-tr="port-chart-dec">Dec: $4.63M</div>
+                                    <div class="tooltip" data-tr="port-chart-jan">Jan: $4.72M</div>
+                                    <div class="tooltip" data-tr="port-chart-feb">Feb: $4.82M</div>
+                                <div class="chart-label" data-tr="chart-lbl-mar">M</div>
+                                <div class="chart-label" data-tr="chart-lbl-apr">A</div>
+                                <div class="chart-label" data-tr="chart-lbl-may">M</div>
+                                <div class="chart-label" data-tr="chart-lbl-jun">J</div>
+                                <div class="chart-label" data-tr="chart-lbl-jul">J</div>
+                                <div class="chart-label" data-tr="chart-lbl-aug">A</div>
+                                <div class="chart-label" data-tr="chart-lbl-sep">S</div>
+                                <div class="chart-label" data-tr="chart-lbl-oct">O</div>
+                                <div class="chart-label" data-tr="chart-lbl-nov">N</div>
+                                <div class="chart-label" data-tr="chart-lbl-dec">D</div>
+                                <div class="chart-label" data-tr="chart-lbl-jan">J</div>
+                                <div class="chart-label" data-tr="chart-lbl-feb">F</div>
+                            <div class="sec-title" data-tr="port-holdings">Holdings</div><button class="sec-action" 
+data-tr="port-export-pdf">Export PDF</button>
+                                    <th data-tr="tbl-header-asset">Asset</th>
+                                    <th data-tr="tbl-header-class">Class</th>
+                                    <th data-tr="tbl-header-invested">Invested</th>
+                                    <th data-tr="tbl-header-current-value">Current Value</th>
+                                    <th data-tr="tbl-header-return">Return</th>
+                                    <th data-tr="tbl-header-yield-pa">Yield p.a.</th>
+                                    <th data-tr="tbl-header-status">Status</th>
+                                    <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
+                                    <td data-tr="filter-real-estate">Real Estate</td>
+                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    <td class="name" data-tr="port-asset-biarritz">Maison de Biarritz</td>
+                                    <td data-tr="filter-real-estate">Real Estate</td>
+                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
+                                    <td data-tr="filter-private-credit">Private Credit</td>
+                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
+                                    <td data-tr="filter-private-equity">Private Equity</td>
+                                    <td><span class="badge badge-y" data-tr="status-invested">Invested</span></td>
+                                    <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
+                                    <td data-tr="filter-bloodstock">Equestrian</td>
+                                    <td><span class="badge badge-g" data-tr="status-racing">Racing</span></td>
+                                    <td class="name" data-tr="port-asset-nordic-timber">Nordic Timber Fund</td>
+                                    <td data-tr="port-class-real-assets">Real Assets</td>
+                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    <td class="name" data-tr="port-asset-silver-crest">Silver Crest — Zurich</td>
+                                    <td data-tr="filter-real-estate">Real Estate</td>
+                                    <td><span class="badge badge-b" data-tr="status-pending">Pending</span></td>
+                            <button class="ac-action active" data-filter="all" data-tr="filter-all">All</button>
+                            <button class="ac-action" data-filter="Real Estate" data-tr="filter-real-estate">Real 
+Estate</button>
+                            <button class="ac-action" data-filter="Private Equity" 
+data-tr="filter-private-equity">Private Equity</button>
+                            <button class="ac-action" data-filter="Private Credit" 
+data-tr="filter-private-credit">Private Credit</button>
+                            <button class="ac-action" data-filter="Infrastructure" 
+data-tr="filter-infrastructure">Infrastructure</button>
+                            <button class="ac-action" data-filter="Energy & Natural Resources" 
+data-tr="filter-energy">Energy & Natural Resources</button>
+                            <button class="ac-action" data-filter="Bloodstock" 
+data-tr="filter-bloodstock">Bloodstock</button>
+                            <button class="ac-action" data-filter="Agriculture & Farmland" 
+data-tr="filter-agriculture">Agriculture & Farmland</button>
+                            <button class="ac-action" data-filter="Timberland & Forestry" 
+data-tr="filter-timberland">Timberland & Forestry</button>
+                            <button class="ac-action" data-filter="Fine Art" data-tr="filter-fine-art">Fine 
+Art</button>
+                            <button class="ac-action" data-filter="Collectibles" 
+data-tr="filter-collectibles">Collectibles</button>
+                            <button class="ac-action" data-filter="Conservation Assets" 
+data-tr="filter-conservation">Conservation Assets</button>
+                            <button class="ac-action" data-filter="Luxury Assets" data-tr="filter-luxury">Luxury 
+Assets</button>
+                            <button class="ac-action" data-filter="Aviation" 
+data-tr="filter-aviation">Aviation</button>
+                            <button class="ac-action" data-filter="Maritime & Yachting" 
+data-tr="filter-maritime">Maritime & Yachting</button>
+                            <button class="ac-action" data-filter="Sports Assets" data-tr="filter-sports">Sports 
+Assets</button>
+                            <button class="ac-action" data-filter="Entertainment & Media Assets" 
+data-tr="filter-entertainment">Entertainment & Media Assets</button>
+                            <button class="ac-action" data-filter="Intellectual Property" 
+data-tr="filter-ip">Intellectual Property</button>
+                            <button class="ac-action" data-filter="Digital Assets" data-tr="filter-digital">Digital 
+Assets</button>
+                            <button class="ac-action" data-filter="Funds" data-tr="filter-funds">Funds</button>
+                            <button class="ac-action" data-filter="Structured Opportunities" 
+data-tr="filter-structured">Structured Opportunities</button>
+                            <button class="ac-action" data-filter="Special Situations" 
+data-tr="filter-special">Special Situations</button>
+                                    <div class="ac-cat" data-tr="ac-cat-real-estate-paris">Real Estate · Paris</div>
+                                    <div class="ac-name" data-tr="ac-name-maison-blanche">Maison Blanche — 8th 
+Arr.</div>
+                                    <div class="ac-sub" data-tr="ac-desc-maison-blanche">Prime Haussmann residential 
+building. 6 floors, 12 units. Full renovation 2022. Fully let.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-maison-blanche">5.8% p.a. 
+yield</div>
+                                            <div class="ac-min" data-tr="ac-min-maison-blanche">Min €200,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                    <div class="ac-cat" data-tr="ac-cat-private-credit">Private Credit · Senior 
+Secured</div>
+                                    <div class="ac-name" data-tr="ac-name-global-credit">Global Credit Opp. III</div>
+                                    <div class="ac-sub" data-tr="ac-desc-global-credit">Senior secured corporate 
+credit portfolio. European issuers. Quarterly distributions. 18-month term.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-global-credit">9.2% p.a. 
+target</div>
+                                            <div class="ac-min" data-tr="ac-min-global-credit">Min $100,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                    <div class="ac-cat" data-tr="ac-cat-equestrian">Equestrian · Thoroughbred</div>
+                                    <div class="ac-name" data-tr="ac-name-midnight-sovereign">Midnight Sovereign</div>
+                                    <div class="ac-sub" data-tr="ac-desc-midnight-sovereign">3-year-old colt. Trained 
+at Newmarket. Grade 2 prospect. 40% fractional ownership available.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-midnight-sovereign">Race earnings 
++ value</div>
+                                            <div class="ac-min" data-tr="ac-min-midnight-sovereign">Min £50,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                    <div class="ac-cat" data-tr="ac-cat-aviation">Aviation · Private Jet</div>
+                                    <div class="ac-name" data-tr="ac-name-gulfstream-share">Gulfstream G700 — 
+Share</div>
+                                    <div class="ac-sub" data-tr="ac-desc-gulfstream-share">1/8 fractional share. 125 
+hours p.a. EASA certified. Full charter management. European base.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-gulfstream-share">Charter offset + 
+usage</div>
+                                            <div class="ac-min" data-tr="ac-min-gulfstream-share">Min $800,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                    <div class="ac-cat" data-tr="ac-cat-pe-fund">Private Equity · Fund</div>
+                                    <div class="ac-name" data-tr="ac-name-templar-growth">Templar European Growth 
+IV</div>
+                                    <div class="ac-sub" data-tr="ac-desc-templar-growth">Lower mid-market European PE. 
+€450M target. Final close June 2025. GP commitment 3%.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-templar-growth">Target 18% net 
+IRR</div>
+                                            <div class="ac-min" data-tr="ac-min-templar-growth">Min €500,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                    <div class="ac-cat" data-tr="ac-cat-maritime">Maritime · Superyacht</div>
+                                    <div class="ac-name" data-tr="ac-name-aquila-yacht">Aquila — 55m Motor Yacht</div>
+                                    <div class="ac-sub" data-tr="ac-desc-aquila-yacht">Available for fractional 
+ownership or charter investment. Mediterranean & Caribbean programme. €4.2M charter revenue 2023.</div>
+                                            <div class="ac-yield" data-tr="ac-yield-aquila-yacht">Charter yield 
+programme</div>
+                                            <div class="ac-min" data-tr="ac-min-aquila-yacht">Min €1,000,000</div>
+                                        <button class="ac-action" data-tr="btn-view">View</button>
+                                data-tr="marketplace-no-assets">No assets currently listed in this category.</div>
+                            <div style="font-family:'Cormorant 
+Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:10px" data-tr="tok-title">Tokenise Your Asset</div>
+                            <div style="font-size:14px;color:var(--cream-d);line-height:1.9;" data-tr="tok-lead">
+                                    <div class="ws-num" data-tr="wiz-step1-num">Step 01</div>
+                                    <div class="ws-name" data-tr="wiz-step1-title">Asset Information</div>
+                                    <div class="ws-num" data-tr="wiz-step2-num">Step 02</div>
+                                    <div class="ws-name" data-tr="wiz-step2-title">Structure & Terms</div>
+                                    <div class="ws-num" data-tr="wiz-step3-num">Step 03</div>
+                                    <div class="ws-name" data-tr="wiz-step3-title">Documentation</div>
+                                    <div class="ws-num" data-tr="wiz-step4-num">Step 04</div>
+                                    <div class="ws-name" data-tr="wiz-step4-title">Review & Submit</div>
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-category">Asset 
+Category</label>
+                                            <option data-tr="opt-cat-real-estate">Real Estate</option>
+                                            <option data-tr="opt-cat-pe-fund">Private Equity / Fund</option>
+                                            <option data-tr="opt-cat-private-credit">Private Credit</option>
+                                            <option data-tr="opt-cat-equestrian">Equestrian</option>
+                                            <option data-tr="opt-cat-aviation">Aviation</option>
+                                            <option data-tr="opt-cat-maritime">Maritime / Yacht</option>
+                                            <option data-tr="opt-cat-fine-art">Fine Art</option>
+                                            <option data-tr="opt-cat-classic-car">Classic Automobile</option>
+                                            <option data-tr="opt-cat-commodities">Precious Metals / 
+Commodities</option>
+                                            <option data-tr="opt-cat-other">Other Real-World Asset</option>
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-name">Asset Name 
+/ Title</label><input class="f-input" type="text"
+                                            placeholder="e.g. Château de Villiers, Burgundy" data-tr="ph-asset-name">
+                                    <div class="form-field"><label class="f-label" 
+data-tr="lbl-asset-jurisdiction">Jurisdiction of Asset</label><input class="f-input" type="text"
+                                            placeholder="Country / State" data-tr="ph-asset-jurisdiction">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-value">Estimated 
+Asset Value</label><input class="f-input" type="text"
+                                            placeholder="USD / EUR / GBP" data-tr="ph-asset-value">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-desc">Asset 
+Description</label>
+features, any existing income, legal ownership structure..." data-tr="ph-asset-desc"></textarea>
+                                        <div class="f-hint" data-tr="f-hint-desc">The more
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizNext()" 
+data-tr="btn-continue-structure">Continue to
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-offering-type">Offering
+                                            <option data-tr="opt-off-equity">Equity / Fractional
+                                            <option data-tr="opt-off-debt">Debt / Credit
+                                            <option data-tr="opt-off-revshare">Revenue Share
+                                            <option data-tr="opt-off-fund">Fund Unit</option>
+                                            <option data-tr="opt-off-usage">Usage / Lease Rights
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-target-raise">Target
+                                            placeholder="e.g. $2,000,000" data-tr="ph-target-raise">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-min-ticket">Minimum
+                                            placeholder="e.g. $50,000" data-tr="ph-min-ticket">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-token-supply">Proposed
+                                            placeholder="e.g. 2,000 tokens @ $1,000 each" data-tr="ph-token-supply">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-target-yield">Target
+                                            placeholder="e.g. 6% p.a. quarterly" data-tr="ph-target-yield">
+                                    <div class="form-field"><label class="f-label" 
+data-tr="lbl-investment-term">Investment
+                                            placeholder="e.g. 5 years / Open-ended" data-tr="ph-investment-term">
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-use-proceeds">Use of
+Include any refinancing, development, or operational use..." data-tr="ph-use-proceeds"></textarea>
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(3)" 
+data-tr="btn-continue-docs">Continue to
+                                    <button class="btn-wiz btn-wiz-s" onclick="wizStep(1)" data-tr="btn-back">←
+                                <div style="margin-bottom:24px;font-size:12.5px;color:var(--cream-d);line-height:1.9" 
+data-tr="tok-doc-intro">
+                                            <div class="doc-name" data-tr="doc-item1-name">Proof
+                                            <div style="font-size:11px;color:var(--cream-d)" data-tr="doc-item1-sub">
+                                        </div><span class="doc-status" style="color:var(--cream-d)" 
+data-tr="doc-status-required">Required
+                                            <div class="doc-name" data-tr="doc-item2-name">
+                                            <div style="font-size:11px;color:var(--cream-d)" data-tr="doc-item2-sub">
+                                        </div><span class="doc-status" style="color:var(--cream-d)" 
+data-tr="doc-status-required">Required</span>
+                                            <div class="doc-name" data-tr="doc-item3-name">
+                                            <div style="font-size:11px;color:var(--cream-d)" data-tr="doc-item3-sub">
+                                        </div><span class="doc-status" style="color:var(--cream-d)" 
+data-tr="doc-status-applicable">If
+                                            <div class="doc-name" data-tr="doc-item4-name">
+                                            <div style="font-size:11px;color:var(--cream-d)" data-tr="doc-item4-sub">
+                                        </div><span class="doc-status" style="color:var(--cream-d)" 
+data-tr="doc-status-applicable">If
+                                            <div class="doc-name" data-tr="doc-item5-name">
+                                            <div style="font-size:11px;color:var(--cream-d)" data-tr="doc-item5-sub">
+                                        </div><span class="doc-status" style="color:var(--cream-d)" 
+data-tr="doc-status-available">If
+                                    <div data-tr="doc-drag-drop">Drag & drop
+                                    <div style="font-size:11px;margin-top:6px" data-tr="doc-drag-drop-sub">
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(4)" 
+data-tr="btn-review-submit">Review
+                                    <button class="btn-wiz btn-wiz-s" onclick="wizStep(2)" data-tr="btn-back">←
+                                    <div style="font-family:'Cormorant 
+Garamond',serif;font-size:28px;color:var(--cream);margin-bottom:12px" data-tr="tok-ready-submit">Ready to Submit</div>
+                                        style="font-size:13px;color:var(--cream-d);max-width:480px;margin:0 
+auto;line-height:2" data-tr="tok-ready-submit-sub">
+                                        <span class="dr-label" data-tr="lbl-summary-category">Asset
+                                            Category</span><span class="dr-val" data-tr="filter-real-estate">Real
+                                        <span class="dr-label" data-tr="lbl-summary-offering">Offering
+                                            Type</span><span class="dr-val" data-tr="opt-off-equity">Equity
+                                        <span class="dr-label" data-tr="lbl-summary-docs">Documents
+                                            Uploaded</span><span class="dr-val" data-tr="lbl-summary-docs-val">0
+                                        <span class="dr-label" data-tr="lbl-summary-submitting">Submitting
+                                            As</span><span class="dr-val" id="submit-name" 
+data-tr="lbl-summary-submitting-val">Thomas
+                                    style="padding:20px 24px;border-left:2px solid 
+var(--gold-lo);font-size:11.5px;color:var(--cream-d);line-height:1.9;margin-bottom:24px" data-tr="tok-disclaimer">
+                                    <button class="btn-wiz btn-wiz-p" onclick="submitTokenisation()" 
+data-tr="btn-submit-app">Submit
+                                    <button class="btn-wiz btn-wiz-s" onclick="wizStep(3)" data-tr="btn-back">←
+                                    <th data-tr="tbl-header-total-value">Total Value</th>
+                                    <th data-tr="tbl-header-raised">Raised</th>
+                                    <th data-tr="tbl-header-investors">Investors</th>
+                                    <th data-tr="tbl-header-status">Status</th>
+                                    <td class="name" data-tr="port-asset-nordic-timber-portfolio">
+                                    <td data-tr="port-class-real-assets">Real Assets</td>
+                                    <td><span class="badge badge-g" data-tr="status-live">Live</span>
+                                            style="padding:6px 14px;font-size:9.5px" 
+data-tr="btn-manage">Manage</button>
+                                    <td class="name" data-tr="iss-asset-chateau">
+                                    <td data-tr="filter-real-estate">Real Estate</td>
+                                    <td><span class="badge badge-y" data-tr="status-under-review">Under
+                                    <td><button class="ac-action" style="padding:6px 14px;font-size:9.5px" 
+data-tr="btn-view">View</button>
+                                <div class="sc-label" data-tr="dist-total-received">
+                                <div class="sc-sub sc-up" data-tr="dist-total-received-sub">
+                                <div class="sc-label" data-tr="dist-next-distribution">
+                                <div class="sc-val" data-tr="db-date-mar15">Mar
+                                <div class="sc-sub" data-tr="dist-next-distribution-sub">
+                                <div class="sc-label" data-tr="dist-avg-yield">
+                                <div class="sc-sub" data-tr="dist-avg-yield-sub">
+                                <div class="sc-label" data-tr="dist-distributing-assets">
+                                <div class="sc-sub" data-tr="dist-distributing-assets-sub">
+                            <div class="sec-title" data-tr="dist-history">
+                                Distribution History</div><button class="sec-action" data-tr="dist-export-csv">Export
+                                    <th data-tr="tbl-header-date">Date</th>
+                                    <th data-tr="tbl-header-asset">Asset</th>
+                                    <th data-tr="tbl-header-type">Type</th>
+                                    <th data-tr="tbl-header-gross">Gross Amount
+                                    <th data-tr="tbl-header-withheld">Withheld
+                                    <th data-tr="tbl-header-net">Net Received
+                                    <td data-tr="db-date-feb01">Feb 1</td>
+                                    <td class="name" data-tr="db-asset-credit-ii">
+                                    <td data-tr="dist-type-coupon">Coupon</td>
+                                    <td data-tr="dist-date-jan15">Jan 15</td>
+                                    <td class="name" data-tr="db-asset-riviera">
+                                    <td data-tr="dist-type-rental">Rental Yield
+                                    <td data-tr="dist-date-jan01">Jan 1</td>
+                                    <td class="name" data-tr="db-asset-credit-ii">
+                                    <td data-tr="dist-type-coupon">Coupon</td>
+                                    <td data-tr="dist-date-dec31">Dec 31</td>
+                                    <td class="name" data-tr="port-asset-nordic-timber">
+                                    <td data-tr="dist-type-quarterly">Quarterly</td>
+                                    <td data-tr="dist-date-dec15">Dec 15</td>
+                                    <td class="name" data-tr="port-asset-biarritz">
+                                    <td data-tr="dist-type-rental">Rental Yield
+                                    <td data-tr="dist-date-dec01">Dec 1</td>
+                                    <td class="name" data-tr="db-asset-credit-ii">
+                                    <td data-tr="dist-type-coupon">Coupon</td>
+                            <div class="sec-title" data-tr="doc-repository">
+                            <button class="sec-action" data-tr="doc-upload">Upload
+                                    <th data-tr="tbl-header-document">Document
+                                    <th data-tr="tbl-header-asset">Asset</th>
+                                    <th data-tr="tbl-header-type">Type</th>
+                                    <th data-tr="tbl-header-date">Date</th>
+                                    <th data-tr="tbl-header-action">Action</th>
+                                    <td class="name" data-tr="doc-name-sub-agreement">
+                                    <td data-tr="db-asset-riviera">Riviera
+                                    <td><span class="badge badge-b" data-tr="badge-subscription">Subscription</span>
+                                    <td data-tr="db-date-feb28">Feb 28</td>
+                                            style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-download">Download</button>
+                                    <td class="name" data-tr="doc-name-info-memo">
+                                    <td data-tr="db-asset-templar">Templar Fund
+                                    <td><span class="badge badge-y" data-tr="badge-offering">Offering</span>
+                                    <td data-tr="db-date-feb22">Feb 22</td>
+                                            style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-download">Download</button>
+                                    <td class="name" data-tr="doc-name-q4-report">
+                                    <td data-tr="db-asset-credit-ii">Global
+                                    <td><span class="badge badge-g" data-tr="badge-report">Report</span>
+                                    <td data-tr="dist-date-jan31">Jan 31</td>
+                                            style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-download">Download</button>
+                                    <td class="name" data-tr="doc-name-owner-cert">
+                                    <td data-tr="db-asset-stardust">Stardust
+                                    <td><span class="badge badge-g" data-tr="badge-certificate">Certificate</span>
+                                    <td data-tr="db-date-feb14">Feb 14</td>
+                                            style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-download">Download</button>
+                                    <td class="name" data-tr="doc-name-annual-kyc">
+                                    <td data-tr="doc-asset-platform">Platform
+                                    <td><span class="badge badge-b" data-tr="badge-compliance">Compliance</span>
+                                    <td data-tr="doc-date-jan05">Jan 5</td>
+                                    <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-view">View</button>
+                                    <td class="name" data-tr="doc-name-wire-conf">
+                                    <td data-tr="port-asset-nordic-timber">Nordic
+                                    <td><span class="badge badge-y" data-tr="badge-transaction">Transaction</span>
+                                    <td data-tr="doc-date-dec12">Dec 12</td>
+                                            style="padding:5px 12px;font-size:9.5px" 
+data-tr="btn-download">Download</button>
+                                    <div style="font-family:'Cormorant 
+Garamond',serif;font-size:20px;color:var(--cream)" data-tr="kyc-ver-complete">Verification Complete</div>
+                                    <div style="font-size:12.5px;color:var(--cream-d);margin-top:4px" 
+data-tr="kyc-ver-complete-sub">
+                                        <th data-tr="tbl-header-check">Check
+                                        <th data-tr="tbl-header-status">Status
+                                        <th data-tr="tbl-header-date">Date
+                                        <th data-tr="tbl-header-next-review">Next
+                                        <td class="name" data-tr="kyc-check-identity">
+                                        <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
+                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                        <td class="name" data-tr="kyc-check-address">
+                                        <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
+                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                        <td class="name" data-tr="kyc-check-wealth">
+                                        <td><span class="badge badge-g" data-tr="status-approved">Approved</span>
+                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                        <td class="name" data-tr="kyc-check-pep">
+                                        <td><span class="badge badge-g" data-tr="status-clear">Clear</span>
+                                        <td data-tr="kyc-val-continuous">Continuous
+                                        <td data-tr="kyc-val-ongoing">Ongoing
+                                        <td class="name" data-tr="kyc-check-eligibility">
+                                        <td><span class="badge badge-g" 
+data-tr="status-professional">Professional</span>
+                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                style="padding:20px 24px;border-left:2px solid 
+var(--gold-lo);font-size:12px;color:var(--cream-d);line-height:1.9" data-tr="kyc-disclaimer">
+                <button class="modal-invest" onclick="expressInterest()" data-tr="btn-express-interest">Express 
+Interest</button>
+                <button class="modal-cancel" onclick="closeModal()" data-tr="btn-close">Close</button>
+
+

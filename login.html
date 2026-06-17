@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquusChain — Member Login</title>
+
+    <!-- SEO Optimization -->
+    <meta name="description"
+        content="EquusChain member login platform. Protected access to institutional private markets and exceptional real-world assets.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo_equuschain_fond_bleu.png">
+    <script src="script.js" defer></script>
+</head>
+
+<body style="background: var(--ink);">
+    <!-- Custom Emblamed Cursor -->
+    <div id="cur">
+        <div class="cursor-emblem">
+            <img src="logo_equuschain_fond_bleu.png" alt="Equus Emblem Cursor" id="cursorEmblemImg">
+        </div>
+    </div>
+
+    <!-- Premium Language Selector at Top Right -->
+    <div style="position: absolute; top: 24px; right: 40px; z-index: 1001;">
+        <div class="lang-selector">
+            <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="listbox"
+                aria-label="Select Language" style="border-color: rgba(242, 235, 217, 0.2); color: #F2EBD9;">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-curr">EN</span>
+            </button>
+            <div class="lang-dropdown" id="langDropdown" role="listbox">
+                <div class="lang-option active" role="option" data-lang="en">English</div>
+                <div class="lang-option" role="option" data-lang="fr">Français</div>
+                <div class="lang-option" role="option" data-lang="it">Italiano</div>
+                <div class="lang-option" role="option" data-lang="es">Español</div>
+                <div class="lang-option" role="option" data-lang="de">Deutsch</div>
+                <div class="lang-option" role="option" data-lang="pt">Português</div>
+                <div class="lang-option" role="option" data-lang="ar">العربية (RTL)</div>
+                <div class="lang-option" role="option" data-lang="ru">Русский</div>
+                <div class="lang-option" role="option" data-lang="zh">中文</div>
+                <div class="lang-option" role="option" data-lang="hi">हिन्दी</div>
+                <div class="lang-option" role="option" data-lang="ja">日本語</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standalone Auth Gate -->
+    <div id="auth-gate">
+        <div class="auth-box">
+            <div class="auth-logo">
+                <div style="display:flex;align-items:center;justify-content:center;margin-bottom:8px;gap:12px">
+                    <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" style="height:45px;width:auto">
+                    <span class="auth-logo-word">Equus<b>Chain</b></span>
+                </div>
+                <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-d)"
+                    data-tr="login-platform">Member Platform</div>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('login')" data-tr="login-signin">Sign In</button>
+                <button class="auth-tab" onclick="switchTab('register')" data-tr="login-reqaccess">Request
+                    Access</button>
+            </div>
+
+            <div class="auth-panel active" id="tab-login">
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-email">Email Address</label>
+                    <input class="auth-input" type="email" placeholder="your@email.com" data-tr="login-email-ph">
+                </div>
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-password">Password</label>
+                    <input class="auth-input" type="password" placeholder="••••••••" data-tr="login-password-ph">
+                </div>
+                <button class="auth-btn" onclick="enterPlatform()" data-tr="login-btn">Access Platform</button>
+                <div class="auth-note" data-tr="login-note">Protected access · All sessions are monitored and encrypted
+                </div>
+            </div>
+
+            <div class="auth-panel" id="tab-register">
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-name">Full Legal Name</label>
+                    <input class="auth-input" type="text" placeholder="As per passport" data-tr="login-name-ph">
+                </div>
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-email">Email Address</label>
+                    <input class="auth-input" type="email" placeholder="your@email.com" data-tr="login-email-ph">
+                </div>
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-profile">Investor Profile</label>
+                    <select class="auth-select" id="auth-profile">
+                        <option value="" data-tr="login-profile-select">Select your profile</option>
+                        <option data-tr="login-profile-1">Family Office</option>
+                        <option data-tr="login-profile-2">Professional Investor (UHNW)</option>
+                        <option data-tr="login-profile-3">Qualified Investor</option>
+                        <option data-tr="login-profile-4">Institutional / Fund</option>
+                        <option data-tr="login-profile-5">Asset Sponsor / Tokenisation</option>
+                    </select>
+                </div>
+                <div class="auth-field">
+                    <label class="auth-label" data-tr="login-jurisdiction">Jurisdiction of Residence</label>
+                    <input class="auth-input" type="text" placeholder="Country" data-tr="login-jurisdiction-ph">
+                </div>
+                <button class="auth-btn" onclick="enterPlatform()" data-tr="login-submit-btn">Submit
+                    Application</button>
+                <div class="auth-note" data-tr="login-register-note">Access is subject to KYC/AML verification and
+                    investor eligibility assessment. Our team will be in contact within 24–48 hours.</div>
+            </div>
+
+            <div class="auth-back"><a href="index.html" data-tr="login-back">← Return to EquusChain.io</a></div>
+        </div>
+    </div>
+</body>
+
+</html>

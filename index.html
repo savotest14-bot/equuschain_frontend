@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Optimization -->
+    <title>EquusChain | Private Real-World Asset Tokenization Exchange</title>
+    <meta name="description"
+        content="EquusChain is the modern infrastructure for the ownership, exchange, and liquidity of exceptional real-world and traditional finance assets. Fractionalized commercial real estate, private equity, bloodstock, fine art, and aviation.">
+    <meta name="keywords"
+        content="EquusChain, asset tokenization, fractional ownership, real-world assets, RWA, private exchange, liquid real estate, bloodstock investment, aviation finance, fine art tokenization">
+    <meta name="author" content="EquusChain Ltd.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Metadata for Social Media -->
+    <meta property="og:title" content="EquusChain | Private Real-World Asset Tokenization Exchange">
+    <meta property="og:description"
+        content="Modern infrastructure for the ownership, exchange, and liquidity of exceptional real-world and traditional finance assets.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://equuschain.io">
+    <meta property="og:image" content="logo_equuschain_fond_bleu.png">
+    <meta property="og:site_name" content="EquusChain">
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/png" href="logo_equuschain_fond_bleu.png">
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=Jost:wght@200;300;400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Reading Progress indicator -->
+    <div id="prog"></div>
+
+    <!-- Custom Emblamed Cursor -->
+    <div id="cur">
+        <div class="cursor-emblem">
+            <img src="logo_equuschain_fond_bleu.png" alt="Equus Emblem Cursor" id="cursorEmblemImg">
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="nav-container">
+        <nav>
+            <a class="logo-wrap" href="#home" aria-label="EquusChain Home">
+                <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" class="nav-logo logo-light">
+                <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" class="nav-logo logo-dark">
+                <span class="logo-text">Equus<b>Chain</b></span>
+            </a>
+
+            <!-- Central Navigation Menu -->
+            <div class="nav-center-menu">
+                <a href="#about" class="nav-link" data-tr="nav-about">Our Approach</a>
+                <a href="#assets" class="nav-link" data-tr="nav-assets">Universe of Assets</a>
+                <a href="#services" class="nav-link" data-tr="nav-services">Capabilities</a>
+                <a href="#contact" class="nav-link" data-tr="nav-contact">Request
+                    Access</a>
+            </div>
+
+            <div class="nav-right">
+                <!-- Premium Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="listbox"
+                        aria-label="Select Language">
+                        <span class="lang-icon">🌐</span>
+                        <span class="lang-curr">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown" role="listbox">
+                        <div class="lang-option active" role="option" data-lang="en">English</div>
+                        <div class="lang-option" role="option" data-lang="fr">Français</div>
+                        <div class="lang-option" role="option" data-lang="it">Italiano</div>
+                        <div class="lang-option" role="option" data-lang="es">Español</div>
+                        <div class="lang-option" role="option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" role="option" data-lang="pt">Português</div>
+                        <div class="lang-option" role="option" data-lang="ar">العربية (RTL)</div>
+                        <div class="lang-option" role="option" data-lang="ru">Русский</div>
+                        <div class="lang-option" role="option" data-lang="zh">中文</div>
+                        <div class="lang-option" role="option" data-lang="hi">हिन्दी</div>
+                        <div class="lang-option" role="option" data-lang="ja">日本語</div>
+                    </div>
+                </div>
+
+                <a href="login.html" class="nav-entry-btn nav-entry" data-tr="ft-col1-item1">Member login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- CHAPTER 0 — COVER (HERO) -->
+        <section class="ch cover" id="home">
+            <div class="cover-num" aria-hidden="true">EQ</div>
+            <div class="cover-content">
+                <h1 data-tr="hero-title">
+                    The world's<br>
+                    finest assets,<br>
+                    <em>finally</em> liquid.
+                </h1>
+                <div class="cover-foot">
+                    <p class="cover-foot-text hero-positioning" data-tr="hero-lead">
+                        EquusChain is the modern infrastructure for the ownership, exchange, and liquidity of
+                        exceptional real-world and traditional finance assets.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 1 — CONVICTION (MANIFESTO) -->
+        <section class="ch manifesto" id="about">
+            <div class="manifesto-lines" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="mf-tag rv" data-tr="manifesto-tag">I. Our Conviction</div>
+            <p class="mf-body rv d1" data-tr="manifesto-body">
+                The world's most enduring assets have always transcended markets and generations. From private
+                enterprises to exceptional real estate, to distinguished bloodstock and fine art, their value extends
+                beyond financial performance alone. EquusChain provides the infrastructure to manage, exchange, and
+                unlock liquidity in these assets with the discretion, transparency, and efficiency they deserve.
+            </p>
+        </section>
+
+        <!-- CHAPTER 2 — ASSET WORLD -->
+        <section class="ch assetworld" id="assets">
+            <div class="aw-head">
+                <div class="rv">
+                    <div class="aw-lbl" data-tr="universe-subtitle">II. Asset Universe</div>
+                    <div class="aw-title" data-tr="universe-title">EquusChain Universe of<br>Exceptional Assets.</div>
+                </div>
+                <p class="aw-intro rv d1" data-tr="universe-lead">
+                    An extensive and growing universe. From institutional private markets to the world's most coveted
+                    real-world assets. A selection below the full catalogue lives inside the platform.
+                </p>
+            </div>
+            <div class="aw-cols">
+                <div class="aw-col">
+                    <div class="aw-entry rv">
+                        <span class="aw-entry-n">01</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-1-name">Real Estate &amp; Infrastructure</div>
+                            <div class="aw-entry-sub" data-tr="asset-1-sub">Fractional or whole.</div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d1">
+                        <span class="aw-entry-n">02</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-2-name">Private Equity</div>
+                            <div class="aw-entry-sub" data-tr="asset-2-sub">Funds, co-investments, and direct positions.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d2">
+                        <span class="aw-entry-n">03</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-3-name">Private Credit</div>
+                            <div class="aw-entry-sub" data-tr="asset-3-sub">Senior secured and bespoke credit
+                                structures.</div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d3" style="border-bottom:none">
+                        <span class="aw-entry-n">04</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-4-name">Agriculture &amp; Commodities</div>
+                            <div class="aw-entry-sub" data-tr="asset-4-sub">Productive land and commodity-linked
+                                instruments.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aw-col">
+                    <div class="aw-entry rv">
+                        <span class="aw-entry-n">05</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-5-name">Equestrian &amp; Bloodstock</div>
+                            <div class="aw-entry-sub" data-tr="asset-5-sub">Thoroughbreds, stud rights, racing
+                                programmes.</div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d1">
+                        <span class="aw-entry-n">06</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-6-name">Private Aviation &amp; Maritime</div>
+                            <div class="aw-entry-sub" data-tr="asset-6-sub">Aircraft, superyachts — investment and use
+                                rights.</div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d2">
+                        <span class="aw-entry-n">07</span>
+                        <div>
+                            <div class="aw-entry-name" data-tr="asset-7-name">Fine Art &amp; Collectibles</div>
+                            <div class="aw-entry-sub" data-tr="asset-7-sub">Museum-grade works, rare wine, classic
+                                automobiles.</div>
+                        </div>
+                    </div>
+                    <div class="aw-entry rv d3" style="border-bottom:none">
+                        <span class="aw-entry-n">08</span>
+                        <div>
+                            <div class="aw-entry-name" style="font-style:italic;color:var(--d)" data-tr="asset-8-name">
+                                And considerably more</div>
+                            <div class="aw-entry-sub" data-tr="asset-8-sub">Precious metals, structured funds, renewable
+                                energy…</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 3 — SERVICES -->
+        <section class="ch how" id="services">
+            <div class="how-title-row">
+                <div class="rv">
+                    <div class="how-lbl" data-tr="services-subtitle">III. Services</div>
+                    <div class="how-title" data-tr="services-title">What the<br>EquusChain Platform<br><em>Enables.</em>
+                    </div>
+                </div>
+                <p class="how-lead rv d1" data-tr="services-lead">
+                    Four things. Each designed for a specific kind of relationship with capital. You may need one. You
+                    may need all four.
+                </p>
+            </div>
+            <div class="how-items">
+                <div class="how-item rv">
+                    <span class="how-n" data-tr="service-1-n">I</span>
+                    <div class="how-item-title" data-tr="service-1-title">Invest &amp; Trade</div>
+                    <p class="how-item-body" data-tr="service-1-body">Subscribe to offerings. Manage positions. Receive
+                        distributions. One private environment for a portfolio that extends far beyond listed markets.
+                    </p>
+                    <a href="#contact" class="how-item-link" data-tr="service-1-link">Open an account</a>
+                </div>
+                <div class="how-item rv d1">
+                    <span class="how-n" data-tr="service-2-n">II</span>
+                    <div class="how-item-title" data-tr="service-2-title">Fractional Ownership</div>
+                    <p class="how-item-body" data-tr="service-2-body">Hold interests in assets that would otherwise
+                        demand exclusive capital commitment. Real estate, private enterprises, bloodstock, aircraft, and
+                        many more; at the size that suits your mandate.</p>
+                    <a href="#contact" class="how-item-link" data-tr="service-2-link">Enquire</a>
+                </div>
+                <div class="how-item rv d2">
+                    <span class="how-n" data-tr="service-3-n">III</span>
+                    <div class="how-item-title" data-tr="service-3-title">Bring Assets to Market</div>
+                    <p class="how-item-body" data-tr="service-3-body">You hold the asset. We structure it, document it,
+                        and bring it to qualified investors. From your privately held company to a property portfolio or
+                        a yacht; the entire process, handled.</p>
+                    <a href="#contact" class="how-item-link" data-tr="service-3-link">Speak with our team</a>
+                </div>
+                <div class="how-item rv d3">
+                    <span class="how-n" data-tr="service-4-n">IV</span>
+                    <div class="how-item-title" data-tr="service-4-title">Access &amp; Use Rights</div>
+                    <p class="how-item-body" data-tr="service-4-body">Certain platform assets are available through
+                        preferential access arrangements. Aviation, maritime, equestrian. Reserved for members.</p>
+                    <a href="#contact" class="how-item-link" data-tr="service-4-link">Explore</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 4 — CONTACT / ACCESS -->
+        <section class="ch contact-ch" id="contact">
+            <div class="cc-grid">
+                <div class="cc-left rv">
+                    <span class="cc-lbl" data-tr="contact-subtitle">IV. Access</span>
+                    <div class="cc-heading" data-tr="contact-title">Request<br><em>Access.</em></div>
+                    <p class="cc-body" data-tr="contact-body">Every inquiry is reviewed directly by our team to ensure
+                        the quality, relevance, and integrity of the EquusChain ecosystem.</p>
+                </div>
+                <div class="cc-right rv d1">
+                    <form id="accessForm" onsubmit="return false;">
+                        <div class="ff">
+                            <label for="form-name" data-tr="form-name-label">Full name</label>
+                            <input type="text" id="form-name" placeholder="Your name" required>
+                        </div>
+                        <div class="ff">
+                            <label for="form-email" data-tr="form-email-label">Email address</label>
+                            <input type="email" id="form-email" placeholder="your@address.com" required>
+                        </div>
+                        <div class="ff">
+                            <label for="form-org" data-tr="form-org-label">Organisation</label>
+                            <input type="text" id="form-org" placeholder="Firm or family office" required>
+                        </div>
+
+                        <!-- Dual Dropdowns: Profile and Primary Interest -->
+                        <div class="ff">
+                            <label for="form-profile" data-tr="form-profile-label">Profile</label>
+                            <select id="form-profile" required>
+                                <option value="" data-tr="opt-select-profile">Select profile…</option>
+                                <option value="Investor" data-tr="opt-profile-1">Investor</option>
+                                <option value="Asset Owner" data-tr="opt-profile-2">Asset Owner</option>
+                                <option value="Intermediary" data-tr="opt-profile-3">Intermediary</option>
+                                <option value="Institution" data-tr="opt-profile-4">Institution</option>
+                                <option value="Advisor" data-tr="opt-profile-5">Advisor</option>
+                                <option value="Service Provider" data-tr="opt-profile-6">Service Provider</option>
+                            </select>
+                        </div>
+                        <div class="ff">
+                            <label for="form-interest" data-tr="form-interest-label">Primary Interest</label>
+                            <select id="form-interest" required>
+                                <option value="" data-tr="opt-select-interest">Select interest…</option>
+                                <option value="Accessing Opportunities" data-tr="opt-interest-1">Accessing Opportunities
+                                </option>
+                                <option value="Listing an Asset" data-tr="opt-interest-2">Listing an Asset</option>
+                                <option value="Capital Raising" data-tr="opt-interest-3">Capital Raising</option>
+                                <option value="Secondary Market Transactions" data-tr="opt-interest-4">Secondary Market
+                                    Transactions</option>
+                                <option value="Asset Tokenization" data-tr="opt-interest-5">Asset Tokenization</option>
+                                <option value="Strategic Partnership" data-tr="opt-interest-6">Strategic Partnership
+                                </option>
+                                <option value="Institutional Access" data-tr="opt-interest-7">Institutional Access
+                                </option>
+                                <option value="General Inquiry" data-tr="opt-interest-8">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="ff">
+                            <label for="form-note" data-tr="form-note-label">A brief note (optional)</label>
+                            <textarea id="form-note" rows="2" placeholder="How can we help?"></textarea>
+                        </div>
+
+                        <!-- Checkboxes & Consents -->
+                        <div class="ff-checkboxes">
+                            <label class="cb-container">
+                                <input type="checkbox" id="form-newsletter">
+                                <span class="cb-custom"></span>
+                                <span class="cb-text" data-tr="form-newsletter-text">I would like to subscribe to
+                                    EquusChain's curated newsletter</span>
+                            </label>
+                            <label class="cb-container">
+                                <input type="checkbox" id="form-consent" required>
+                                <span class="cb-custom"></span>
+                                <span class="cb-text" data-tr="form-consent-text">I confirm that I have read and agree
+                                    with the <a href="#termsModal" class="live-link" id="termsLink">Terms &amp;
+                                        Conditions</a> and <a href="#privacyModal" class="live-link"
+                                        id="privacyLink">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <button class="sub-btn" id="sub" type="submit" data-tr="form-submit-btn">Submit Request</button>
+                    </form>
+                    <p class="cc-note" data-tr="form-note-footer">Your enquiry is handled with complete discretion. We
+                        do not share details with third parties.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="ft-top">
+            <a class="ft-logo-wrap" href="#home" aria-label="EquusChain Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" class="ft-logo">
+                <span class="logo-text" style="color: #F2EBD9; font-size: 24px;">Equus<b style="color: var(--g3);">Chain</b></span>
+            </a>
+            <div class="ft-cols">
+                <div class="ft-col">
+                    <h5 data-tr="ft-col1-title">Platform</h5>
+                    <ul>
+                        <li><a href="private.html" data-tr="ft-col1-item1">Member login</a></li>
+                        <li><a href="private.html" data-tr="ft-col1-item2">Universe of Assets</a></li>
+                        <li><a href="private.html" data-tr="ft-col1-item3">Bring an asset</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h5 data-tr="ft-col2-title">Contact</h5>
+                    <ul>
+                        <li><a href="#contact" data-tr="ft-col2-item1">Investor relations</a></li>
+                        <li><a href="#contact" data-tr="ft-col2-item2">Institutional desk</a></li>
+                        <li><a href="#contact" data-tr="ft-col2-item3">Legal &amp; compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ft-bot">
+            <div class="ft-legal" data-tr="ft-disclaimer">
+                © 2026 EquusChain Ltd. All rights reserved. The information contained on this website is provided for
+                informational purposes only and does not constitute investment, legal, tax, or financial advice, nor an
+                offer or solicitation to buy or sell any security, financial instrument, or asset. Access to certain
+                services and opportunities may be restricted based on jurisdiction, investor classification, and
+                applicable laws. Investments involve risk, including the possible loss of capital. Users are responsible
+                for ensuring compliance with the laws and regulations applicable to them.
+            </div>
+            <div class="ft-lnks">
+                <a href="#privacyModal" class="modal-trigger" data-tr="ft-privacy">Privacy</a>
+                <a href="#termsModal" class="modal-trigger" data-tr="ft-terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CLIENT-SIDE COOKIE CONSENT BANNER -->
+    <div id="cookieBanner" class="cookie-banner" aria-live="polite">
+        <div class="cookie-banner-content">
+            <h4 class="cookie-banner-title" data-tr="cookie-title">We use cookies</h4>
+            <p class="cookie-banner-body" data-tr="cookie-body">
+                We use cookies to improve your experience, analyze site usage, and, if you wish, to offer you
+                personalized content and offers. Some cookies are essential for the site to function (session,
+                security). Other cookies (analytics, marketing, tracking) require your prior consent.
+            </p>
+            <div class="cookie-banner-actions">
+                <button id="refuseCookies" class="cookie-btn refuse-btn" data-tr="cookie-refuse">Refuse non-essential
+                    cookies</button>
+                <button id="acceptCookies" class="cookie-btn accept-btn" data-tr="cookie-accept">Accept non-essential
+                    cookies</button>
+            </div>
+            <a href="#privacyModal" class="cookie-link" id="cookieLearnMore" data-tr="cookie-link">Learn more about our
+                cookies</a>
+        </div>
+    </div>
+
+    <!-- MODAL OVERLAYS (LIVE LINKS) -->
+    <div id="termsModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="termsTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="closeTerms" aria-label="Close modal">&times;</button>
+            <h3 id="termsTitle">Terms &amp; Conditions</h3>
+            <div class="modal-body-content">
+                <p><strong>Effective Date: June 17, 2026</strong></p>
+                <p>Welcome to EquusChain. By accessing or using our platform, website, and services, you agree to be
+                    bound by these Terms &amp; Conditions. Please read them carefully.</p>
+                <p>1. <strong>Eligibility:</strong> Access is restricted to qualified, eligible, institutional, or
+                    accredited investors in jurisdictions where such access is permitted under local laws.</p>
+                <p>2. <strong>No Investment Advice:</strong> Content on this website is for informational purposes only
+                    and does not constitute investment, financial, legal, or tax advice.</p>
+                <p>3. <strong>Discretion &amp; Confidentiality:</strong> EquusChain operates a private asset exchange.
+                    All information shared via the platform is strictly confidential.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="privacyTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="closePrivacy" aria-label="Close modal">&times;</button>
+            <h3 id="privacyTitle">Privacy Policy</h3>
+            <div class="modal-body-content">
+                <p><strong>Effective Date: June 17, 2026</strong></p>
+                <p>EquusChain Ltd. is committed to protecting your privacy and ensuring complete discretion regarding
+                    all personal data and communications.</p>
+                <p>1. <strong>Information We Collect:</strong> We collect details submitted via our Access Request form,
+                    including names, contact information, professional credentials, and preferences.</p>
+                <p>2. <strong>Use of Data:</strong> Data is used strictly to evaluate membership applications and
+                    communicate platform updates. We collect this data in our client records and newsletter registry.
+                </p>
+                <p>3. <strong>Cookie Usage:</strong> We utilize essential cookies for safety and session persistence.
+                    Analytical and marketing cookies are loaded strictly upon your explicit consent.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Progress Circle Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <svg class="progress-circle" width="46" height="46" viewBox="0 0 46 46">
+            <circle class="progress-bg" cx="23" cy="23" r="20"></circle>
+            <circle class="progress-bar" cx="23" cy="23" r="20"></circle>
+        </svg>
+        <span class="arrow-up">↑</span>
+    </button>
+</body>
+
+</html>
