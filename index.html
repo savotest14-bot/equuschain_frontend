@@ -88,7 +88,14 @@
                     </div>
                 </div>
 
-                <a href="login.html" class="nav-entry-btn nav-entry" data-tr="ft-col1-item1">Member login</a>
+                <a href="private/login.html" class="nav-entry-btn nav-entry" data-tr="ft-col1-item1">Member login</a>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -350,17 +357,19 @@
     <!-- FOOTER -->
     <footer>
         <div class="ft-top">
-            <a class="ft-logo-wrap" href="#home" aria-label="EquusChain Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <a class="ft-logo-wrap" href="#home" aria-label="EquusChain Home"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
                 <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" class="ft-logo">
-                <span class="logo-text" style="color: #F2EBD9; font-size: 24px;">Equus<b style="color: var(--g3);">Chain</b></span>
+                <span class="logo-text" style="color: #F2EBD9; font-size: 24px;">Equus<b
+                        style="color: var(--g3);">Chain</b></span>
             </a>
             <div class="ft-cols">
                 <div class="ft-col">
                     <h5 data-tr="ft-col1-title">Platform</h5>
                     <ul>
-                        <li><a href="private.html" data-tr="ft-col1-item1">Member login</a></li>
-                        <li><a href="private.html" data-tr="ft-col1-item2">Universe of Assets</a></li>
-                        <li><a href="private.html" data-tr="ft-col1-item3">Bring an asset</a></li>
+                        <li><a href="private/login.html" data-tr="ft-col1-item1">Member login</a></li>
+                        <li><a href="private/dashboard.html" data-tr="ft-col1-item2">Universe of Assets</a></li>
+                        <li><a href="private/dashboard.html" data-tr="ft-col1-item3">Bring an asset</a></li>
                     </ul>
                 </div>
                 <div class="ft-col">
@@ -444,6 +453,24 @@
                 <p>3. <strong>Cookie Usage:</strong> We utilize essential cookies for safety and session persistence.
                     Analytical and marketing cookies are loaded strictly upon your explicit consent.</p>
             </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-sidebar">
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close Menu">&times;</button>
+            <div class="mobile-menu-logo">
+                <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" class="mobile-logo-img">
+                <span class="mobile-logo-text">Equus<b>Chain</b></span>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="#about" class="mobile-menu-link" data-tr="nav-about">Our Approach</a>
+                <a href="#assets" class="mobile-menu-link" data-tr="nav-assets">Universe of Assets</a>
+                <a href="#services" class="mobile-menu-link" data-tr="nav-services">Capabilities</a>
+                <a href="#contact" class="mobile-menu-link" data-tr="nav-contact">Request Access</a>
+                <a href="private/login.html" class="mobile-menu-entry-btn" data-tr="ft-col1-item1">Member login</a>
+            </nav>
         </div>
     </div>
 

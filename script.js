@@ -169,6 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedLang = localStorage.getItem('equuschain_lang') || 'en';
     switchLanguage(storedLang);
 
+    // Restore active dashboard panel on load if it exists in the DOM
+    const storedPanelId = localStorage.getItem('activeDashboardPanel');
+    if (storedPanelId && document.getElementById('panel-' + storedPanelId)) {
+        showPanel(storedPanelId);
+    }
+
     // ─── 6. COOKIE CONSENT SYSTEM ───────────────
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptCookies = document.getElementById('acceptCookies');
@@ -414,6 +420,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Mobile Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    if (hamburgerBtn && mobileMenuOverlay) {
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMobileMenu = () => {
+            mobileMenuOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
+            }
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    }
 });
 
 
@@ -1833,10 +1871,11 @@ function switchTab(t) {
 
 // Access triggers
 function enterPlatform() {
-    window.location.href = 'private.html';
+    window.location.href = '../private/dashboard.html';
 }
 
 function logout() {
+    localStorage.removeItem('activeDashboardPanel');
     window.location.href = 'login.html';
 }
 
@@ -1874,6 +1913,9 @@ function showPanel(id) {
     }
     
     if (id === 'tokenise') wizStep(1);
+    
+    // Persist active tab across refreshes
+    localStorage.setItem('activeDashboardPanel', id);
 }
 
 // Wizard flow
@@ -1996,12 +2038,27 @@ function openModal(id) {
         }
     }
     
-    if (overlayEl) overlayEl.classList.add('open');
+    if (overlayEl) {
+        overlayEl.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closeModal() {
     const overlayEl = document.getElementById('modal-overlay');
-    if (overlayEl) overlayEl.classList.remove('open');
+    if (overlayEl) {
+        overlayEl.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+}
+
+function expressInterest() {
+    let msg = 'Thank you for your expression of interest. A representative from our Investor Relations desk will contact you within 24 hours to provide the Information Memorandum and review the subscription process.';
+    if (window.currentLangDict && window.currentLangDict['alert-express-interest']) {
+        msg = window.currentLangDict['alert-express-interest'];
+    }
+    alert(msg);
+    closeModal();
 }
 
 const modalOverlay = document.getElementById('modal-overlay');
@@ -2010,3 +2067,36 @@ if (modalOverlay) {
         if (e.target === this) closeModal();
     });
 }
+
+// Sidebar toggle for dashboard responsive layout
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const backdrop = document.querySelector('.sidebar-backdrop');
+    if (sidebar && backdrop) {
+        const isOpen = sidebar.classList.contains('open');
+        if (isOpen) {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('open');
+            document.body.style.overflow = '';
+        } else {
+            sidebar.classList.add('open');
+            backdrop.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+}
+
+// Close sidebar on link clicks for mobile devices
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.sidebar .sb-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const sidebar = document.querySelector('.sidebar');
+            const backdrop = document.querySelector('.sidebar-backdrop');
+            if (sidebar && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                if (backdrop) backdrop.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+});

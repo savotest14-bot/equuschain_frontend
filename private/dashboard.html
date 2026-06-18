@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?
 family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;3
 00;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="logo_equuschain_fond_bleu.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo_equuschain_fond_bleu.png">
     <script src="private_tr_1.js" defer></script>
     <script src="private_tr_2.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="../script.js" defer></script>
 
 </head>
 
@@ -21,18 +21,22 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
     <!-- Custom Emblamed Cursor -->
     <div id="cur">
         <div class="cursor-emblem">
-            <img src="logo_equuschain_fond_bleu.png" alt="Equus Emblem Cursor" id="cursorEmblemImg">
+            <img src="../logo_equuschain_fond_bleu.png" alt="Equus Emblem Cursor" id="cursorEmblemImg">
         </div>
     </div>
 
     <!-- APP -->
     <div id="app" style="display: block;">
         <div class="app-shell">
+            <!-- Sidebar backdrop for mobile -->
+            <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+
             <!-- SIDEBAR -->
             <aside class="sidebar">
                 <div class="sb-logo">
-                    <img src="logo_equuschain_fond_bleu.png" alt="EquusChain Logo" style="height:45px;width:auto">
+                    <img src="../logo_equuschain_fond_bleu.png" alt="EquusChain Logo" style="height:45px;width:auto">
                     <span class="sb-logo-word">Equus<b>Chain</b></span>
+                    <button class="sb-close-btn" onclick="toggleSidebar()">&times;</button>
                 </div>
                 <div class="sb-user">
                     <div class="sb-avatar" id="sb-initials">TK</div>
@@ -118,6 +122,12 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
             <!-- MAIN -->
             <main class="main">
                 <div class="topbar">
+                    <!-- Hamburger Menu Button for mobile -->
+                    <button class="topbar-menu-btn" onclick="toggleSidebar()" aria-label="Toggle Sidebar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <div class="topbar-title" id="topbar-title" data-tr="panel-dashboard">Dashboard</div>
                     <div class="topbar-right">
                         <!-- Premium Language Selector -->
@@ -167,7 +177,8 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                             </div>
                             <div class="stat-card">
                                 <div class="sc-label" data-tr="db-pending-kyc">Pending KYC</div>
-                                <div class="sc-val" style="font-size:22px;color:var(--green)" data-tr="status-verified">Verified</div>
+                                <div class="sc-val" style="font-size:22px;color:var(--green)" data-tr="status-verified">
+                                    Verified</div>
                                 <div class="sc-sub" data-tr="db-full-access">Full access active</div>
                             </div>
                         </div>
@@ -176,47 +187,53 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 <div class="sec-head">
                                     <div class="sec-title" data-tr="db-recent-activity">Recent Activity</div>
                                 </div>
-                                <table class="tbl">
-                                    <thead>
-                                        <tr>
-                                            <th data-tr="tbl-header-asset">Asset</th>
-                                            <th data-tr="tbl-header-type">Type</th>
-                                            <th data-tr="tbl-header-amount">Amount</th>
-                                            <th data-tr="tbl-header-date">Date</th>
-                                            <th data-tr="tbl-header-status">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
-                                            <td data-tr="db-act-purchase">Purchase</td>
-                                            <td>$500K</td>
-                                            <td data-tr="db-date-feb28">Feb 28</td>
-                                            <td><span class="badge badge-g" data-tr="status-complete">Complete</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
-                                            <td data-tr="db-act-subscription">Subscription</td>
-                                            <td>$250K</td>
-                                            <td data-tr="db-date-feb22">Feb 22</td>
-                                            <td><span class="badge badge-g" data-tr="status-complete">Complete</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
-                                            <td data-tr="db-act-fractional">Fractional</td>
-                                            <td>$80K</td>
-                                            <td data-tr="db-date-feb14">Feb 14</td>
-                                            <td><span class="badge badge-g" data-tr="status-complete">Complete</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
-                                            <td data-tr="db-act-income">Income</td>
-                                            <td>+$12,400</td>
-                                            <td data-tr="db-date-feb01">Feb 1</td>
-                                            <td><span class="badge badge-b" data-tr="status-distribution">Distribution</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="tbl-wrapper">
+                                    <table class="tbl">
+                                        <thead>
+                                            <tr>
+                                                <th data-tr="tbl-header-asset">Asset</th>
+                                                <th data-tr="tbl-header-type">Type</th>
+                                                <th data-tr="tbl-header-amount">Amount</th>
+                                                <th data-tr="tbl-header-date">Date</th>
+                                                <th data-tr="tbl-header-status">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
+                                                <td data-tr="db-act-purchase">Purchase</td>
+                                                <td>$500K</td>
+                                                <td data-tr="db-date-feb28">Feb 28</td>
+                                                <td><span class="badge badge-g" data-tr="status-complete">Complete</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
+                                                <td data-tr="db-act-subscription">Subscription</td>
+                                                <td>$250K</td>
+                                                <td data-tr="db-date-feb22">Feb 22</td>
+                                                <td><span class="badge badge-g" data-tr="status-complete">Complete</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
+                                                <td data-tr="db-act-fractional">Fractional</td>
+                                                <td>$80K</td>
+                                                <td data-tr="db-date-feb14">Feb 14</td>
+                                                <td><span class="badge badge-g" data-tr="status-complete">Complete</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
+                                                <td data-tr="db-act-income">Income</td>
+                                                <td>+$12,400</td>
+                                                <td data-tr="db-date-feb01">Feb 1</td>
+                                                <td><span class="badge badge-b"
+                                                        data-tr="status-distribution">Distribution</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div>
                                 <div class="sec-head">
@@ -227,7 +244,8 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                         <div class="di-left">
                                             <div class="di-date" data-tr="db-date-mar15">Mar 15</div>
                                             <div>
-                                                <div class="di-name" data-tr="db-asset-riviera">Riviera Villa — Nice</div>
+                                                <div class="di-name" data-tr="db-asset-riviera">Riviera Villa — Nice
+                                                </div>
                                                 <div class="di-sub" data-tr="db-q1-rental-yield">Q1 Rental Yield</div>
                                             </div>
                                         </div>
@@ -237,7 +255,8 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                         <div class="di-left">
                                             <div class="di-date" data-tr="db-date-mar31">Mar 31</div>
                                             <div>
-                                                <div class="di-name" data-tr="db-asset-credit-ii">Global Credit Opp. II</div>
+                                                <div class="di-name" data-tr="db-asset-credit-ii">Global Credit Opp. II
+                                                </div>
                                                 <div class="di-sub" data-tr="db-monthly-coupon">Monthly Coupon</div>
                                             </div>
                                         </div>
@@ -263,21 +282,26 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                         <div class="notif">
                             <div class="notif-dot"></div>
                             <div>
-                                <div class="notif-text" data-tr="notif-1-text"><strong>New Offering:</strong> Maison Blanche — Paris 8th Arrondissement. Prime residential. Minimum €200K. Closes 31 March 2025.</div>
+                                <div class="notif-text" data-tr="notif-1-text"><strong>New Offering:</strong> Maison
+                                    Blanche — Paris 8th Arrondissement. Prime residential. Minimum €200K. Closes 31
+                                    March 2025.</div>
                                 <div class="notif-time" data-tr="time-2h-ago">2 hours ago</div>
                             </div>
                         </div>
                         <div class="notif">
                             <div class="notif-dot" style="background:var(--blue)"></div>
                             <div>
-                                <div class="notif-text" data-tr="notif-2-text"><strong>Distribution Received:</strong> $12,400 from Global Credit Opportunities II has been credited to your account.</div>
+                                <div class="notif-text" data-tr="notif-2-text"><strong>Distribution Received:</strong>
+                                    $12,400 from Global Credit Opportunities II has been credited to your account.</div>
                                 <div class="notif-time" data-tr="time-yesterday">Yesterday</div>
                             </div>
                         </div>
                         <div class="notif">
                             <div class="notif-dot" style="background:var(--green)"></div>
                             <div>
-                                <div class="notif-text" data-tr="notif-3-text"><strong>KYC Renewal:</strong> Your annual compliance review is due in 45 days. No action required yet — our team will be in contact.</div>
+                                <div class="notif-text" data-tr="notif-3-text"><strong>KYC Renewal:</strong> Your annual
+                                    compliance review is due in 45 days. No action required yet — our team will be in
+                                    contact.</div>
                                 <div class="notif-time" data-tr="time-3d-ago">3 days ago</div>
                             </div>
                         </div>
@@ -307,7 +331,8 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                             </div>
                         </div>
                         <div class="port-chart">
-                            <div class="port-chart-title" data-tr="port-perf-title">Portfolio Performance — 12 Months</div>
+                            <div class="port-chart-title" data-tr="port-perf-title">Portfolio Performance — 12 Months
+                            </div>
                             <div class="chart-bars">
                                 <div class="chart-bar" style="height:40%">
                                     <div class="tooltip" data-tr="port-chart-mar">Mar: $4.41M</div>
@@ -362,112 +387,133 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                             </div>
                         </div>
                         <div class="sec-head">
-                            <div class="sec-title" data-tr="port-holdings">Holdings</div><button class="sec-action" data-tr="port-export-pdf">Export PDF</button>
+                            <div class="sec-title" data-tr="port-holdings">Holdings</div><button class="sec-action"
+                                data-tr="port-export-pdf">Export PDF</button>
                         </div>
-                        <table class="tbl">
-                            <thead>
-                                <tr>
-                                    <th data-tr="tbl-header-asset">Asset</th>
-                                    <th data-tr="tbl-header-class">Class</th>
-                                    <th data-tr="tbl-header-invested">Invested</th>
-                                    <th data-tr="tbl-header-current-value">Current Value</th>
-                                    <th data-tr="tbl-header-return">Return</th>
-                                    <th data-tr="tbl-header-yield-pa">Yield p.a.</th>
-                                    <th data-tr="tbl-header-status">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
-                                    <td data-tr="filter-real-estate">Real Estate</td>
-                                    <td>$500K</td>
-                                    <td>$512K</td>
-                                    <td class="pos">+2.4%</td>
-                                    <td>6.8%</td>
-                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="port-asset-biarritz">Maison de Biarritz</td>
-                                    <td data-tr="filter-real-estate">Real Estate</td>
-                                    <td>$700K</td>
-                                    <td>$742K</td>
-                                    <td class="pos">+6.0%</td>
-                                    <td>5.2%</td>
-                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
-                                    <td data-tr="filter-private-credit">Private Credit</td>
-                                    <td>$600K</td>
-                                    <td>$628K</td>
-                                    <td class="pos">+4.7%</td>
-                                    <td>9.1%</td>
-                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
-                                    <td data-tr="filter-private-equity">Private Equity</td>
-                                    <td>$250K</td>
-                                    <td>$244K</td>
-                                    <td class="neg">-2.4%</td>
-                                    <td>—</td>
-                                    <td><span class="badge badge-y" data-tr="status-invested">Invested</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
-                                    <td data-tr="filter-bloodstock">Equestrian</td>
-                                    <td>$80K</td>
-                                    <td>$85K</td>
-                                    <td class="pos">+6.3%</td>
-                                    <td>—</td>
-                                    <td><span class="badge badge-g" data-tr="status-racing">Racing</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="port-asset-nordic-timber">Nordic Timber Fund</td>
-                                    <td data-tr="port-class-real-assets">Real Assets</td>
-                                    <td>$400K</td>
-                                    <td>$404K</td>
-                                    <td class="pos">+1.0%</td>
-                                    <td>4.1%</td>
-                                    <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="port-asset-silver-crest">Silver Crest — Zurich</td>
-                                    <td data-tr="filter-real-estate">Real Estate</td>
-                                    <td>$900K</td>
-                                    <td>$907K</td>
-                                    <td class="pos">+0.8%</td>
-                                    <td>3.9%</td>
-                                    <td><span class="badge badge-b" data-tr="status-pending">Pending</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="tbl-wrapper">
+                            <table class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th data-tr="tbl-header-asset">Asset</th>
+                                        <th data-tr="tbl-header-class">Class</th>
+                                        <th data-tr="tbl-header-invested">Invested</th>
+                                        <th data-tr="tbl-header-current-value">Current Value</th>
+                                        <th data-tr="tbl-header-return">Return</th>
+                                        <th data-tr="tbl-header-yield-pa">Yield p.a.</th>
+                                        <th data-tr="tbl-header-status">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="name" data-tr="db-asset-riviera">Riviera Villa — Nice</td>
+                                        <td data-tr="filter-real-estate">Real Estate</td>
+                                        <td>$500K</td>
+                                        <td>$512K</td>
+                                        <td class="pos">+2.4%</td>
+                                        <td>6.8%</td>
+                                        <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="port-asset-biarritz">Maison de Biarritz</td>
+                                        <td data-tr="filter-real-estate">Real Estate</td>
+                                        <td>$700K</td>
+                                        <td>$742K</td>
+                                        <td class="pos">+6.0%</td>
+                                        <td>5.2%</td>
+                                        <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="db-asset-credit-ii">Global Credit Opp. II</td>
+                                        <td data-tr="filter-private-credit">Private Credit</td>
+                                        <td>$600K</td>
+                                        <td>$628K</td>
+                                        <td class="pos">+4.7%</td>
+                                        <td>9.1%</td>
+                                        <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="db-asset-templar">Templar Fund III</td>
+                                        <td data-tr="filter-private-equity">Private Equity</td>
+                                        <td>$250K</td>
+                                        <td>$244K</td>
+                                        <td class="neg">-2.4%</td>
+                                        <td>—</td>
+                                        <td><span class="badge badge-y" data-tr="status-invested">Invested</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="db-asset-stardust">Stardust (Thoroughbred)</td>
+                                        <td data-tr="filter-bloodstock">Equestrian</td>
+                                        <td>$80K</td>
+                                        <td>$85K</td>
+                                        <td class="pos">+6.3%</td>
+                                        <td>—</td>
+                                        <td><span class="badge badge-g" data-tr="status-racing">Racing</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="port-asset-nordic-timber">Nordic Timber Fund</td>
+                                        <td data-tr="port-class-real-assets">Real Assets</td>
+                                        <td>$400K</td>
+                                        <td>$404K</td>
+                                        <td class="pos">+1.0%</td>
+                                        <td>4.1%</td>
+                                        <td><span class="badge badge-g" data-tr="status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="port-asset-silver-crest">Silver Crest — Zurich</td>
+                                        <td data-tr="filter-real-estate">Real Estate</td>
+                                        <td>$900K</td>
+                                        <td>$907K</td>
+                                        <td class="pos">+0.8%</td>
+                                        <td>3.9%</td>
+                                        <td><span class="badge badge-b" data-tr="status-pending">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- MARKETPLACE -->
                     <div class="panel" id="panel-marketplace">
                         <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap">
                             <button class="ac-action active" data-filter="all" data-tr="filter-all">All</button>
-                            <button class="ac-action" data-filter="Real Estate" data-tr="filter-real-estate">Real Estate</button>
-                            <button class="ac-action" data-filter="Private Equity" data-tr="filter-private-equity">Private Equity</button>
-                            <button class="ac-action" data-filter="Private Credit" data-tr="filter-private-credit">Private Credit</button>
-                            <button class="ac-action" data-filter="Infrastructure" data-tr="filter-infrastructure">Infrastructure</button>
-                            <button class="ac-action" data-filter="Energy & Natural Resources" data-tr="filter-energy">Energy & Natural Resources</button>
-                            <button class="ac-action" data-filter="Bloodstock" data-tr="filter-bloodstock">Bloodstock</button>
-                            <button class="ac-action" data-filter="Agriculture & Farmland" data-tr="filter-agriculture">Agriculture & Farmland</button>
-                            <button class="ac-action" data-filter="Timberland & Forestry" data-tr="filter-timberland">Timberland & Forestry</button>
+                            <button class="ac-action" data-filter="Real Estate" data-tr="filter-real-estate">Real
+                                Estate</button>
+                            <button class="ac-action" data-filter="Private Equity"
+                                data-tr="filter-private-equity">Private Equity</button>
+                            <button class="ac-action" data-filter="Private Credit"
+                                data-tr="filter-private-credit">Private Credit</button>
+                            <button class="ac-action" data-filter="Infrastructure"
+                                data-tr="filter-infrastructure">Infrastructure</button>
+                            <button class="ac-action" data-filter="Energy & Natural Resources"
+                                data-tr="filter-energy">Energy & Natural Resources</button>
+                            <button class="ac-action" data-filter="Bloodstock"
+                                data-tr="filter-bloodstock">Bloodstock</button>
+                            <button class="ac-action" data-filter="Agriculture & Farmland"
+                                data-tr="filter-agriculture">Agriculture & Farmland</button>
+                            <button class="ac-action" data-filter="Timberland & Forestry"
+                                data-tr="filter-timberland">Timberland & Forestry</button>
                             <button class="ac-action" data-filter="Fine Art" data-tr="filter-fine-art">Fine Art</button>
-                            <button class="ac-action" data-filter="Collectibles" data-tr="filter-collectibles">Collectibles</button>
-                            <button class="ac-action" data-filter="Conservation Assets" data-tr="filter-conservation">Conservation Assets</button>
-                            <button class="ac-action" data-filter="Luxury Assets" data-tr="filter-luxury">Luxury Assets</button>
+                            <button class="ac-action" data-filter="Collectibles"
+                                data-tr="filter-collectibles">Collectibles</button>
+                            <button class="ac-action" data-filter="Conservation Assets"
+                                data-tr="filter-conservation">Conservation Assets</button>
+                            <button class="ac-action" data-filter="Luxury Assets" data-tr="filter-luxury">Luxury
+                                Assets</button>
                             <button class="ac-action" data-filter="Aviation" data-tr="filter-aviation">Aviation</button>
-                            <button class="ac-action" data-filter="Maritime & Yachting" data-tr="filter-maritime">Maritime & Yachting</button>
-                            <button class="ac-action" data-filter="Sports Assets" data-tr="filter-sports">Sports Assets</button>
-                            <button class="ac-action" data-filter="Entertainment & Media Assets" data-tr="filter-entertainment">Entertainment & Media Assets</button>
-                            <button class="ac-action" data-filter="Intellectual Property" data-tr="filter-ip">Intellectual Property</button>
-                            <button class="ac-action" data-filter="Digital Assets" data-tr="filter-digital">Digital Assets</button>
+                            <button class="ac-action" data-filter="Maritime & Yachting"
+                                data-tr="filter-maritime">Maritime & Yachting</button>
+                            <button class="ac-action" data-filter="Sports Assets" data-tr="filter-sports">Sports
+                                Assets</button>
+                            <button class="ac-action" data-filter="Entertainment & Media Assets"
+                                data-tr="filter-entertainment">Entertainment & Media Assets</button>
+                            <button class="ac-action" data-filter="Intellectual Property"
+                                data-tr="filter-ip">Intellectual Property</button>
+                            <button class="ac-action" data-filter="Digital Assets" data-tr="filter-digital">Digital
+                                Assets</button>
                             <button class="ac-action" data-filter="Funds" data-tr="filter-funds">Funds</button>
-                            <button class="ac-action" data-filter="Structured Opportunities" data-tr="filter-structured">Structured Opportunities</button>
-                            <button class="ac-action" data-filter="Special Situations" data-tr="filter-special">Special Situations</button>
+                            <button class="ac-action" data-filter="Structured Opportunities"
+                                data-tr="filter-structured">Structured Opportunities</button>
+                            <button class="ac-action" data-filter="Special Situations" data-tr="filter-special">Special
+                                Situations</button>
                         </div>
                         <div class="card-grid">
                             <div class="asset-card" data-category="Real Estate" onclick="openModal('real-estate-1')">
@@ -478,11 +524,14 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 </div>
                                 <div class="ac-body">
                                     <div class="ac-cat" data-tr="ac-cat-real-estate-paris">Real Estate · Paris</div>
-                                    <div class="ac-name" data-tr="ac-name-maison-blanche">Maison Blanche — 8th Arr.</div>
-                                    <div class="ac-sub" data-tr="ac-desc-maison-blanche">Prime Haussmann residential building. 6 floors, 12 units. Full renovation 2022. Fully let.</div>
+                                    <div class="ac-name" data-tr="ac-name-maison-blanche">Maison Blanche — 8th Arr.
+                                    </div>
+                                    <div class="ac-sub" data-tr="ac-desc-maison-blanche">Prime Haussmann residential
+                                        building. 6 floors, 12 units. Full renovation 2022. Fully let.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-maison-blanche">5.8% p.a. yield</div>
+                                            <div class="ac-yield" data-tr="ac-yield-maison-blanche">5.8% p.a. yield
+                                            </div>
                                             <div class="ac-min" data-tr="ac-min-maison-blanche">Min €200,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -496,12 +545,15 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                     </div>
                                 </div>
                                 <div class="ac-body">
-                                    <div class="ac-cat" data-tr="ac-cat-private-credit">Private Credit · Senior Secured</div>
+                                    <div class="ac-cat" data-tr="ac-cat-private-credit">Private Credit · Senior Secured
+                                    </div>
                                     <div class="ac-name" data-tr="ac-name-global-credit">Global Credit Opp. III</div>
-                                    <div class="ac-sub" data-tr="ac-desc-global-credit">Senior secured corporate credit portfolio. European issuers. Quarterly distributions. 18-month term.</div>
+                                    <div class="ac-sub" data-tr="ac-desc-global-credit">Senior secured corporate credit
+                                        portfolio. European issuers. Quarterly distributions. 18-month term.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-global-credit">9.2% p.a. target</div>
+                                            <div class="ac-yield" data-tr="ac-yield-global-credit">9.2% p.a. target
+                                            </div>
                                             <div class="ac-min" data-tr="ac-min-global-credit">Min $100,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -517,10 +569,12 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 <div class="ac-body">
                                     <div class="ac-cat" data-tr="ac-cat-equestrian">Equestrian · Thoroughbred</div>
                                     <div class="ac-name" data-tr="ac-name-midnight-sovereign">Midnight Sovereign</div>
-                                    <div class="ac-sub" data-tr="ac-desc-midnight-sovereign">3-year-old colt. Trained at Newmarket. Grade 2 prospect. 40% fractional ownership available.</div>
+                                    <div class="ac-sub" data-tr="ac-desc-midnight-sovereign">3-year-old colt. Trained at
+                                        Newmarket. Grade 2 prospect. 40% fractional ownership available.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-midnight-sovereign">Race earnings + value</div>
+                                            <div class="ac-yield" data-tr="ac-yield-midnight-sovereign">Race earnings +
+                                                value</div>
                                             <div class="ac-min" data-tr="ac-min-midnight-sovereign">Min £50,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -534,11 +588,14 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 </div>
                                 <div class="ac-body">
                                     <div class="ac-cat" data-tr="ac-cat-aviation">Aviation · Private Jet</div>
-                                    <div class="ac-name" data-tr="ac-name-gulfstream-share">Gulfstream G700 — Share</div>
-                                    <div class="ac-sub" data-tr="ac-desc-gulfstream-share">1/8 fractional share. 125 hours p.a. EASA certified. Full charter management. European base.</div>
+                                    <div class="ac-name" data-tr="ac-name-gulfstream-share">Gulfstream G700 — Share
+                                    </div>
+                                    <div class="ac-sub" data-tr="ac-desc-gulfstream-share">1/8 fractional share. 125
+                                        hours p.a. EASA certified. Full charter management. European base.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-gulfstream-share">Charter offset + usage</div>
+                                            <div class="ac-yield" data-tr="ac-yield-gulfstream-share">Charter offset +
+                                                usage</div>
                                             <div class="ac-min" data-tr="ac-min-gulfstream-share">Min $800,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -553,11 +610,14 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 </div>
                                 <div class="ac-body">
                                     <div class="ac-cat" data-tr="ac-cat-pe-fund">Private Equity · Fund</div>
-                                    <div class="ac-name" data-tr="ac-name-templar-growth">Templar European Growth IV</div>
-                                    <div class="ac-sub" data-tr="ac-desc-templar-growth">Lower mid-market European PE. €450M target. Final close June 2025. GP commitment 3%.</div>
+                                    <div class="ac-name" data-tr="ac-name-templar-growth">Templar European Growth IV
+                                    </div>
+                                    <div class="ac-sub" data-tr="ac-desc-templar-growth">Lower mid-market European PE.
+                                        €450M target. Final close June 2025. GP commitment 3%.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-templar-growth">Target 18% net IRR</div>
+                                            <div class="ac-yield" data-tr="ac-yield-templar-growth">Target 18% net IRR
+                                            </div>
                                             <div class="ac-min" data-tr="ac-min-templar-growth">Min €500,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -572,10 +632,13 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                 <div class="ac-body">
                                     <div class="ac-cat" data-tr="ac-cat-maritime">Maritime · Superyacht</div>
                                     <div class="ac-name" data-tr="ac-name-aquila-yacht">Aquila — 55m Motor Yacht</div>
-                                    <div class="ac-sub" data-tr="ac-desc-aquila-yacht">Available for fractional ownership or charter investment. Mediterranean & Caribbean programme. €4.2M charter revenue 2023.</div>
+                                    <div class="ac-sub" data-tr="ac-desc-aquila-yacht">Available for fractional
+                                        ownership or charter investment. Mediterranean & Caribbean programme. €4.2M
+                                        charter revenue 2023.</div>
                                     <div class="ac-footer">
                                         <div>
-                                            <div class="ac-yield" data-tr="ac-yield-aquila-yacht">Charter yield programme</div>
+                                            <div class="ac-yield" data-tr="ac-yield-aquila-yacht">Charter yield
+                                                programme</div>
                                             <div class="ac-min" data-tr="ac-min-aquila-yacht">Min €1,000,000</div>
                                         </div>
                                         <button class="ac-action" data-tr="btn-view">View</button>
@@ -590,8 +653,10 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
 
                     <!-- TOKENISE -->
                     <div class="panel" id="panel-tokenise">
-                        <div style="margin-bottom:32px;padding:24px 28px;background:var(--ink-mid);border:1px solid var(--line)">
-                            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:10px" data-tr="tok-title">Tokenise Your Asset</div>
+                        <div
+                            style="margin-bottom:32px;padding:24px 28px;background:var(--ink-mid);border:1px solid var(--line)">
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:10px"
+                                data-tr="tok-title">Tokenise Your Asset</div>
                             <div style="font-size:14px;color:var(--cream-d);line-height:1.9;" data-tr="tok-lead">
                                 EquusChain, together with its approved partners, manages the complete asset tokenisation
                                 process, including preliminary assessment, structuring, legal documentation, regulatory
@@ -624,7 +689,8 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                             </div>
                             <div id="wiz-panel-1">
                                 <div class="form-grid">
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-category">Asset Category</label>
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-category">Asset
+                                            Category</label>
                                         <select class="f-select">
                                             <option data-tr="opt-cat-real-estate">Real Estate</option>
                                             <option data-tr="opt-cat-pe-fund">Private Equity / Fund</option>
@@ -638,18 +704,23 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wg
                                             <option data-tr="opt-cat-other">Other Real-World Asset</option>
                                         </select>
                                     </div>
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-name">Asset Name / Title</label><input class="f-input" type="text"
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-name">Asset Name /
+                                            Title</label><input class="f-input" type="text"
                                             placeholder="e.g. Château de Villiers, Burgundy" data-tr="ph-asset-name">
                                     </div>
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-jurisdiction">Jurisdiction of Asset</label><input class="f-input" type="text"
-                                            placeholder="Country / State" data-tr="ph-asset-jurisdiction">
+                                    <div class="form-field"><label class="f-label"
+                                            data-tr="lbl-asset-jurisdiction">Jurisdiction of Asset</label><input
+                                            class="f-input" type="text" placeholder="Country / State"
+                                            data-tr="ph-asset-jurisdiction">
                                     </div>
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-value">Estimated Asset Value</label><input class="f-input" type="text"
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-value">Estimated
+                                            Asset Value</label><input class="f-input" type="text"
                                             placeholder="USD / EUR / GBP" data-tr="ph-asset-value">
                                     </div>
                                 </div>
                                 <div class="form-grid full">
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-desc">Asset Description</label>
+                                    <div class="form-field"><label class="f-label" data-tr="lbl-asset-desc">Asset
+                                            Description</label>
                                         <textarea class="f-textarea" placeholder="Describe the asset: location, condition, key 
 features, any existing income, legal ownership structure..." data-tr="ph-asset-desc"></textarea>
                                         <div class="f-hint" data-tr="f-hint-desc">The more
@@ -662,7 +733,8 @@ features, any existing income, legal ownership structure..." data-tr="ph-asset-d
                                     </div>
                                 </div>
                                 <div class="wiz-actions">
-                                    <button class="btn-wiz btn-wiz-p" onclick="wizNext()" data-tr="btn-continue-structure">Continue to
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizNext()"
+                                        data-tr="btn-continue-structure">Continue to
                                         Structure →</button>
                                 </div>
                             </div>
@@ -699,7 +771,8 @@ features, any existing income, legal ownership structure..." data-tr="ph-asset-d
                                             Yield</label><input class="f-input" type="text"
                                             placeholder="e.g. 6% p.a. quarterly" data-tr="ph-target-yield">
                                     </div>
-                                    <div class="form-field"><label class="f-label" data-tr="lbl-investment-term">Investment
+                                    <div class="form-field"><label class="f-label"
+                                            data-tr="lbl-investment-term">Investment
                                             Term</label><input class="f-input" type="text"
                                             placeholder="e.g. 5 years / Open-ended" data-tr="ph-investment-term">
                                     </div>
@@ -712,14 +785,16 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                     </div>
                                 </div>
                                 <div class="wiz-actions">
-                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(3)" data-tr="btn-continue-docs">Continue to
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(3)"
+                                        data-tr="btn-continue-docs">Continue to
                                         Documents →</button>
                                     <button class="btn-wiz btn-wiz-s" onclick="wizStep(1)" data-tr="btn-back">←
                                         Back</button>
                                 </div>
                             </div>
                             <div id="wiz-panel-3" style="display:none">
-                                <div style="margin-bottom:24px;font-size:12.5px;color:var(--cream-d);line-height:1.9" data-tr="tok-doc-intro">
+                                <div style="margin-bottom:24px;font-size:12.5px;color:var(--cream-d);line-height:1.9"
+                                    data-tr="tok-doc-intro">
                                     Please upload any available
                                     documentation. All documents are
                                     treated with the utmost
@@ -740,7 +815,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                                 share certificate,
                                                 or
                                                 equivalent</div>
-                                        </div><span class="doc-status" style="color:var(--cream-d)" data-tr="doc-status-required">Required
+                                        </div><span class="doc-status" style="color:var(--cream-d)"
+                                            data-tr="doc-status-required">Required
                                         </span>
                                     </div>
                                     <div class="doc-item">
@@ -752,7 +828,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                                 Independent
                                                 valuation within
                                                 12 months</div>
-                                        </div><span class="doc-status" style="color:var(--cream-d)" data-tr="doc-status-required">Required</span>
+                                        </div><span class="doc-status" style="color:var(--cream-d)"
+                                            data-tr="doc-status-required">Required</span>
                                     </div>
                                     <div class="doc-item">
                                         <div>
@@ -767,7 +844,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                                 history
                                                 (last 2
                                                 years)</div>
-                                        </div><span class="doc-status" style="color:var(--cream-d)" data-tr="doc-status-applicable">If
+                                        </div><span class="doc-status" style="color:var(--cream-d)"
+                                            data-tr="doc-status-applicable">If
                                             applicable</span>
                                     </div>
                                     <div class="doc-item">
@@ -787,7 +865,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                                 register,
                                                 SPV docs
                                             </div>
-                                        </div><span class="doc-status" style="color:var(--cream-d)" data-tr="doc-status-applicable">If
+                                        </div><span class="doc-status" style="color:var(--cream-d)"
+                                            data-tr="doc-status-applicable">If
                                             applicable</span>
                                     </div>
                                     <div class="doc-item">
@@ -806,7 +885,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                                 investment
                                                 summary
                                             </div>
-                                        </div><span class="doc-status" style="color:var(--cream-d)" data-tr="doc-status-available">If
+                                        </div><span class="doc-status" style="color:var(--cream-d)"
+                                            data-tr="doc-status-available">If
                                             available</span>
                                     </div>
                                 </div>
@@ -824,7 +904,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                         per file</div>
                                 </div>
                                 <div class="wiz-actions">
-                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(4)" data-tr="btn-review-submit">Review
+                                    <button class="btn-wiz btn-wiz-p" onclick="wizStep(4)"
+                                        data-tr="btn-review-submit">Review
                                         & Submit
                                         →</button>
                                     <button class="btn-wiz btn-wiz-s" onclick="wizStep(2)" data-tr="btn-back">←
@@ -834,9 +915,10 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                             <div id="wiz-panel-4" style="display:none">
                                 <div
                                     style="padding:36px;background:var(--ink-mid);border:1px solid var(--line);margin-bottom:24px;text-align:center">
-                                    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--cream);margin-bottom:12px" data-tr="tok-ready-submit">Ready to Submit</div>
-                                    <div
-                                        style="font-size:13px;color:var(--cream-d);max-width:480px;margin:0 auto;line-height:2" data-tr="tok-ready-submit-sub">
+                                    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--cream);margin-bottom:12px"
+                                        data-tr="tok-ready-submit">Ready to Submit</div>
+                                    <div style="font-size:13px;color:var(--cream-d);max-width:480px;margin:0 auto;line-height:2"
+                                        data-tr="tok-ready-submit-sub">
                                         Once submitted,
                                         your asset
                                         application will
@@ -876,14 +958,15 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                     </div>
                                     <div class="detail-row">
                                         <span class="dr-label" data-tr="lbl-summary-submitting">Submitting
-                                            As</span><span class="dr-val" id="submit-name" data-tr="lbl-summary-submitting-val">Thomas
+                                            As</span><span class="dr-val" id="submit-name"
+                                            data-tr="lbl-summary-submitting-val">Thomas
                                             Kerjean —
                                             Family
                                             Office</span>
                                     </div>
                                 </div>
-                                <div
-                                    style="padding:20px 24px;border-left:2px solid var(--gold-lo);font-size:11.5px;color:var(--cream-d);line-height:1.9;margin-bottom:24px" data-tr="tok-disclaimer">
+                                <div style="padding:20px 24px;border-left:2px solid var(--gold-lo);font-size:11.5px;color:var(--cream-d);line-height:1.9;margin-bottom:24px"
+                                    data-tr="tok-disclaimer">
                                     By submitting this
                                     application, you
                                     confirm that all
@@ -905,7 +988,8 @@ Include any refinancing, development, or operational use..." data-tr="ph-use-pro
                                     compliance review.
                                 </div>
                                 <div class="wiz-actions">
-                                    <button class="btn-wiz btn-wiz-p" onclick="submitTokenisation()" data-tr="btn-submit-app">Submit
+                                    <button class="btn-wiz btn-wiz-p" onclick="submitTokenisation()"
+                                        data-tr="btn-submit-app">Submit
                                         Application</button>
                                     <button class="btn-wiz btn-wiz-s" onclick="wizStep(3)" data-tr="btn-back">←
                                         Back</button>
@@ -924,49 +1008,52 @@ cream)">1 active tokenisation</strong> on the platform and <strong style="color:
                                     review</strong>.
                             </div>
                         </div>
-                        <table class="tbl">
-                            <thead>
-                                <tr>
-                                    <th>Asset</th>
-                                    <th>Type</th>
-                                    <th data-tr="tbl-header-total-value">Total Value</th>
-                                    <th data-tr="tbl-header-raised">Raised</th>
-                                    <th data-tr="tbl-header-investors">Investors</th>
-                                    <th data-tr="tbl-header-status">Status</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="name" data-tr="port-asset-nordic-timber-portfolio">
-                                        Nordic Timber
-                                        Portfolio</td>
-                                    <td data-tr="port-class-real-assets">Real Assets</td>
-                                    <td>$2.0M</td>
-                                    <td>$1.6M (80%)</td>
-                                    <td>14</td>
-                                    <td><span class="badge badge-g" data-tr="status-live">Live</span>
-                                    </td>
-                                    <td><button class="ac-action"
-                                            style="padding:6px 14px;font-size:9.5px" data-tr="btn-manage">Manage</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="iss-asset-chateau">
-                                        Château de
-                                        Villiers</td>
-                                    <td data-tr="filter-real-estate">Real Estate</td>
-                                    <td>€3.5M</td>
-                                    <td>—</td>
-                                    <td>—</td>
-                                    <td><span class="badge badge-y" data-tr="status-under-review">Under
-                                            Review</span>
-                                    </td>
-                                    <td><button class="ac-action" style="padding:6px 14px;font-size:9.5px" data-tr="btn-view">View</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="tbl-wrapper">
+                            <table class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>Asset</th>
+                                        <th>Type</th>
+                                        <th data-tr="tbl-header-total-value">Total Value</th>
+                                        <th data-tr="tbl-header-raised">Raised</th>
+                                        <th data-tr="tbl-header-investors">Investors</th>
+                                        <th data-tr="tbl-header-status">Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="name" data-tr="port-asset-nordic-timber-portfolio">
+                                            Nordic Timber
+                                            Portfolio</td>
+                                        <td data-tr="port-class-real-assets">Real Assets</td>
+                                        <td>$2.0M</td>
+                                        <td>$1.6M (80%)</td>
+                                        <td>14</td>
+                                        <td><span class="badge badge-g" data-tr="status-live">Live</span>
+                                        </td>
+                                        <td><button class="ac-action" style="padding:6px 14px;font-size:9.5px"
+                                                data-tr="btn-manage">Manage</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="iss-asset-chateau">
+                                            Château de
+                                            Villiers</td>
+                                        <td data-tr="filter-real-estate">Real Estate</td>
+                                        <td>€3.5M</td>
+                                        <td>—</td>
+                                        <td>—</td>
+                                        <td><span class="badge badge-y" data-tr="status-under-review">Under
+                                                Review</span>
+                                        </td>
+                                        <td><button class="ac-action" style="padding:6px 14px;font-size:9.5px"
+                                                data-tr="btn-view">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- DISTRIBUTIONS -->
                     <div class="panel" id="panel-distributions">
@@ -1016,97 +1103,99 @@ cream)">1 active tokenisation</strong> on the platform and <strong style="color:
                                 Distribution History</div><button class="sec-action" data-tr="dist-export-csv">Export
                                 CSV</button>
                         </div>
-                        <table class="tbl">
-                            <thead>
-                                <tr>
-                                    <th data-tr="tbl-header-date">Date</th>
-                                    <th data-tr="tbl-header-asset">Asset</th>
-                                    <th data-tr="tbl-header-type">Type</th>
-                                    <th data-tr="tbl-header-gross">Gross Amount
-                                    </th>
-                                    <th data-tr="tbl-header-withheld">Withheld
-                                    </th>
-                                    <th data-tr="tbl-header-net">Net Received
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-tr="db-date-feb01">Feb 1</td>
-                                    <td class="name" data-tr="db-asset-credit-ii">
-                                        Global
-                                        Credit Opp.
-                                        II</td>
-                                    <td data-tr="dist-type-coupon">Coupon</td>
-                                    <td>$12,400</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $12,400</td>
-                                </tr>
-                                <tr>
-                                    <td data-tr="dist-date-jan15">Jan 15</td>
-                                    <td class="name" data-tr="db-asset-riviera">
-                                        Riviera
-                                        Villa — Nice
-                                    </td>
-                                    <td data-tr="dist-type-rental">Rental Yield
-                                    </td>
-                                    <td>$8,200</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $8,200</td>
-                                </tr>
-                                <tr>
-                                    <td data-tr="dist-date-jan01">Jan 1</td>
-                                    <td class="name" data-tr="db-asset-credit-ii">
-                                        Global
-                                        Credit Opp.
-                                        II</td>
-                                    <td data-tr="dist-type-coupon">Coupon</td>
-                                    <td>$12,400</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $12,400</td>
-                                </tr>
-                                <tr>
-                                    <td data-tr="dist-date-dec31">Dec 31</td>
-                                    <td class="name" data-tr="port-asset-nordic-timber">
-                                        Nordic
-                                        Timber Fund
-                                    </td>
-                                    <td data-tr="dist-type-quarterly">Quarterly</td>
-                                    <td>$4,100</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $4,100</td>
-                                </tr>
-                                <tr>
-                                    <td data-tr="dist-date-dec15">Dec 15</td>
-                                    <td class="name" data-tr="port-asset-biarritz">
-                                        Maison de
-                                        Biarritz
-                                    </td>
-                                    <td data-tr="dist-type-rental">Rental Yield
-                                    </td>
-                                    <td>$9,100</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $9,100</td>
-                                </tr>
-                                <tr>
-                                    <td data-tr="dist-date-dec01">Dec 1</td>
-                                    <td class="name" data-tr="db-asset-credit-ii">
-                                        Global
-                                        Credit Opp.
-                                        II</td>
-                                    <td data-tr="dist-type-coupon">Coupon</td>
-                                    <td>$12,400</td>
-                                    <td>—</td>
-                                    <td class="pos">
-                                        $12,400</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="tbl-wrapper">
+                            <table class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th data-tr="tbl-header-date">Date</th>
+                                        <th data-tr="tbl-header-asset">Asset</th>
+                                        <th data-tr="tbl-header-type">Type</th>
+                                        <th data-tr="tbl-header-gross">Gross Amount
+                                        </th>
+                                        <th data-tr="tbl-header-withheld">Withheld
+                                        </th>
+                                        <th data-tr="tbl-header-net">Net Received
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-tr="db-date-feb01">Feb 1</td>
+                                        <td class="name" data-tr="db-asset-credit-ii">
+                                            Global
+                                            Credit Opp.
+                                            II</td>
+                                        <td data-tr="dist-type-coupon">Coupon</td>
+                                        <td>$12,400</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $12,400</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-tr="dist-date-jan15">Jan 15</td>
+                                        <td class="name" data-tr="db-asset-riviera">
+                                            Riviera
+                                            Villa — Nice
+                                        </td>
+                                        <td data-tr="dist-type-rental">Rental Yield
+                                        </td>
+                                        <td>$8,200</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $8,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-tr="dist-date-jan01">Jan 1</td>
+                                        <td class="name" data-tr="db-asset-credit-ii">
+                                            Global
+                                            Credit Opp.
+                                            II</td>
+                                        <td data-tr="dist-type-coupon">Coupon</td>
+                                        <td>$12,400</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $12,400</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-tr="dist-date-dec31">Dec 31</td>
+                                        <td class="name" data-tr="port-asset-nordic-timber">
+                                            Nordic
+                                            Timber Fund
+                                        </td>
+                                        <td data-tr="dist-type-quarterly">Quarterly</td>
+                                        <td>$4,100</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $4,100</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-tr="dist-date-dec15">Dec 15</td>
+                                        <td class="name" data-tr="port-asset-biarritz">
+                                            Maison de
+                                            Biarritz
+                                        </td>
+                                        <td data-tr="dist-type-rental">Rental Yield
+                                        </td>
+                                        <td>$9,100</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $9,100</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-tr="dist-date-dec01">Dec 1</td>
+                                        <td class="name" data-tr="db-asset-credit-ii">
+                                            Global
+                                            Credit Opp.
+                                            II</td>
+                                        <td data-tr="dist-type-coupon">Coupon</td>
+                                        <td>$12,400</td>
+                                        <td>—</td>
+                                        <td class="pos">
+                                            $12,400</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- DOCUMENTS -->
                     <div class="panel" id="panel-documents">
@@ -1117,116 +1206,122 @@ cream)">1 active tokenisation</strong> on the platform and <strong style="color:
                             <button class="sec-action" data-tr="doc-upload">Upload
                                 Document</button>
                         </div>
-                        <table class="tbl">
-                            <thead>
-                                <tr>
-                                    <th data-tr="tbl-header-document">Document
-                                    </th>
-                                    <th data-tr="tbl-header-asset">Asset</th>
-                                    <th data-tr="tbl-header-type">Type</th>
-                                    <th data-tr="tbl-header-date">Date</th>
-                                    <th data-tr="tbl-header-action">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-sub-agreement">
-                                        Subscription
-                                        Agreement
-                                    </td>
-                                    <td data-tr="db-asset-riviera">Riviera
-                                        Villa — Nice
-                                    </td>
-                                    <td><span class="badge badge-b" data-tr="badge-subscription">Subscription</span>
-                                    </td>
-                                    <td data-tr="db-date-feb28">Feb 28</td>
-                                    <td><button class="ac-action"
-                                            style="padding:5px 12px;font-size:9.5px" data-tr="btn-download">Download</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-info-memo">
-                                        Information
-                                        Memorandum
-                                    </td>
-                                    <td data-tr="db-asset-templar">Templar Fund
-                                        III</td>
-                                    <td><span class="badge badge-y" data-tr="badge-offering">Offering</span>
-                                    </td>
-                                    <td data-tr="db-date-feb22">Feb 22</td>
-                                    <td><button class="ac-action"
-                                            style="padding:5px 12px;font-size:9.5px" data-tr="btn-download">Download</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-q4-report">
-                                        Quarterly
-                                        Report Q4
-                                        2024</td>
-                                    <td data-tr="db-asset-credit-ii">Global
-                                        Credit Opp.
-                                        II</td>
-                                    <td><span class="badge badge-g" data-tr="badge-report">Report</span>
-                                    </td>
-                                    <td data-tr="dist-date-jan31">Jan 31</td>
-                                    <td><button class="ac-action"
-                                            style="padding:5px 12px;font-size:9.5px" data-tr="btn-download">Download</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-owner-cert">
-                                        Ownership
-                                        Certificate
-                                    </td>
-                                    <td data-tr="db-asset-stardust">Stardust
-                                        (Thoroughbred)
-                                    </td>
-                                    <td><span class="badge badge-g" data-tr="badge-certificate">Certificate</span>
-                                    </td>
-                                    <td data-tr="db-date-feb14">Feb 14</td>
-                                    <td><button class="ac-action"
-                                            style="padding:5px 12px;font-size:9.5px" data-tr="btn-download">Download</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-annual-kyc">
-                                        Annual KYC
-                                        Review</td>
-                                    <td data-tr="doc-asset-platform">Platform
-                                    </td>
-                                    <td><span class="badge badge-b" data-tr="badge-compliance">Compliance</span>
-                                    </td>
-                                    <td data-tr="doc-date-jan05">Jan 5</td>
-                                    <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px" data-tr="btn-view">View</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name" data-tr="doc-name-wire-conf">
-                                        Wire
-                                        Confirmation
-                                    </td>
-                                    <td data-tr="port-asset-nordic-timber">Nordic
-                                        Timber Fund
-                                    </td>
-                                    <td><span class="badge badge-y" data-tr="badge-transaction">Transaction</span>
-                                    </td>
-                                    <td data-tr="doc-date-dec12">Dec 12</td>
-                                    <td><button class="ac-action"
-                                            style="padding:5px 12px;font-size:9.5px" data-tr="btn-download">Download</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="tbl-wrapper">
+                            <table class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th data-tr="tbl-header-document">Document
+                                        </th>
+                                        <th data-tr="tbl-header-asset">Asset</th>
+                                        <th data-tr="tbl-header-type">Type</th>
+                                        <th data-tr="tbl-header-date">Date</th>
+                                        <th data-tr="tbl-header-action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-sub-agreement">
+                                            Subscription
+                                            Agreement
+                                        </td>
+                                        <td data-tr="db-asset-riviera">Riviera
+                                            Villa — Nice
+                                        </td>
+                                        <td><span class="badge badge-b" data-tr="badge-subscription">Subscription</span>
+                                        </td>
+                                        <td data-tr="db-date-feb28">Feb 28</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-download">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-info-memo">
+                                            Information
+                                            Memorandum
+                                        </td>
+                                        <td data-tr="db-asset-templar">Templar Fund
+                                            III</td>
+                                        <td><span class="badge badge-y" data-tr="badge-offering">Offering</span>
+                                        </td>
+                                        <td data-tr="db-date-feb22">Feb 22</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-download">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-q4-report">
+                                            Quarterly
+                                            Report Q4
+                                            2024</td>
+                                        <td data-tr="db-asset-credit-ii">Global
+                                            Credit Opp.
+                                            II</td>
+                                        <td><span class="badge badge-g" data-tr="badge-report">Report</span>
+                                        </td>
+                                        <td data-tr="dist-date-jan31">Jan 31</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-download">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-owner-cert">
+                                            Ownership
+                                            Certificate
+                                        </td>
+                                        <td data-tr="db-asset-stardust">Stardust
+                                            (Thoroughbred)
+                                        </td>
+                                        <td><span class="badge badge-g" data-tr="badge-certificate">Certificate</span>
+                                        </td>
+                                        <td data-tr="db-date-feb14">Feb 14</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-download">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-annual-kyc">
+                                            Annual KYC
+                                            Review</td>
+                                        <td data-tr="doc-asset-platform">Platform
+                                        </td>
+                                        <td><span class="badge badge-b" data-tr="badge-compliance">Compliance</span>
+                                        </td>
+                                        <td data-tr="doc-date-jan05">Jan 5</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-view">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name" data-tr="doc-name-wire-conf">
+                                            Wire
+                                            Confirmation
+                                        </td>
+                                        <td data-tr="port-asset-nordic-timber">Nordic
+                                            Timber Fund
+                                        </td>
+                                        <td><span class="badge badge-y" data-tr="badge-transaction">Transaction</span>
+                                        </td>
+                                        <td data-tr="doc-date-dec12">Dec 12</td>
+                                        <td><button class="ac-action" style="padding:5px 12px;font-size:9.5px"
+                                                data-tr="btn-download">Download</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- KYC -->
                     <div class="panel" id="panel-kyc">
-                        <div style="max-width:640px">
-                            <div style="padding:32px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);margin-bottom:24px;display:flex;gap:20px;align-items:center">
+                        <div style="">
+                            <div
+                                style="padding:32px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);margin-bottom:24px;display:flex;gap:20px;align-items:center">
                                 <div style="font-size:32px">
                                     ✓</div>
                                 <div>
-                                    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream)" data-tr="kyc-ver-complete">Verification Complete</div>
-                                    <div style="font-size:12.5px;color:var(--cream-d);margin-top:4px" data-tr="kyc-ver-complete-sub">
+                                    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream)"
+                                        data-tr="kyc-ver-complete">Verification Complete</div>
+                                    <div style="font-size:12.5px;color:var(--cream-d);margin-top:4px"
+                                        data-tr="kyc-ver-complete-sub">
                                         Full
                                         platform
                                         access
@@ -1236,95 +1331,98 @@ cream)">1 active tokenisation</strong> on the platform and <strong style="color:
                                         file.</div>
                                 </div>
                             </div>
-                            <table class="tbl" style="margin-bottom:24px">
-                                <thead>
-                                    <tr>
-                                        <th data-tr="tbl-header-check">Check
-                                        </th>
-                                        <th data-tr="tbl-header-status">Status
-                                        </th>
-                                        <th data-tr="tbl-header-date">Date
-                                        </th>
-                                        <th data-tr="tbl-header-next-review">Next
-                                            Review
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="name" data-tr="kyc-check-identity">
-                                            Identity
-                                            Verification
-                                        </td>
-                                        <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
-                                            2025
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
-                                            2026
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" data-tr="kyc-check-address">
-                                            Address
-                                            Verification
-                                        </td>
-                                        <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
-                                            2025
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
-                                            2026
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" data-tr="kyc-check-wealth">
-                                            Source
-                                            of
-                                            Wealth
-                                        </td>
-                                        <td><span class="badge badge-g" data-tr="status-approved">Approved</span>
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
-                                            2025
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
-                                            2026
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" data-tr="kyc-check-pep">
-                                            PEP /
-                                            Sanctions
-                                            Screen
-                                        </td>
-                                        <td><span class="badge badge-g" data-tr="status-clear">Clear</span>
-                                        </td>
-                                        <td data-tr="kyc-val-continuous">Continuous
-                                        </td>
-                                        <td data-tr="kyc-val-ongoing">Ongoing
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" data-tr="kyc-check-eligibility">
-                                            Investor
-                                            Eligibility
-                                        </td>
-                                        <td><span class="badge badge-g" data-tr="status-professional">Professional</span>
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2025">Jan 5,
-                                            2025
-                                        </td>
-                                        <td data-tr="kyc-date-jan05-2026">Jan 5,
-                                            2026
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div
-                                style="padding:20px 24px;border-left:2px solid var(--gold-lo);font-size:12px;color:var(--cream-d);line-height:1.9" data-tr="kyc-disclaimer">
+                            <div class="tbl-wrapper" style="margin-bottom:24px">
+                                <table class="tbl">
+                                    <thead>
+                                        <tr>
+                                            <th data-tr="tbl-header-check">Check
+                                            </th>
+                                            <th data-tr="tbl-header-status">Status
+                                            </th>
+                                            <th data-tr="tbl-header-date">Date
+                                            </th>
+                                            <th data-tr="tbl-header-next-review">Next
+                                                Review
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="name" data-tr="kyc-check-identity">
+                                                Identity
+                                                Verification
+                                            </td>
+                                            <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                                2025
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                                2026
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name" data-tr="kyc-check-address">
+                                                Address
+                                                Verification
+                                            </td>
+                                            <td><span class="badge badge-g" data-tr="status-verified">Verified</span>
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                                2025
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                                2026
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name" data-tr="kyc-check-wealth">
+                                                Source
+                                                of
+                                                Wealth
+                                            </td>
+                                            <td><span class="badge badge-g" data-tr="status-approved">Approved</span>
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                                2025
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                                2026
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name" data-tr="kyc-check-pep">
+                                                PEP /
+                                                Sanctions
+                                                Screen
+                                            </td>
+                                            <td><span class="badge badge-g" data-tr="status-clear">Clear</span>
+                                            </td>
+                                            <td data-tr="kyc-val-continuous">Continuous
+                                            </td>
+                                            <td data-tr="kyc-val-ongoing">Ongoing
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name" data-tr="kyc-check-eligibility">
+                                                Investor
+                                                Eligibility
+                                            </td>
+                                            <td><span class="badge badge-g"
+                                                    data-tr="status-professional">Professional</span>
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2025">Jan 5,
+                                                2025
+                                            </td>
+                                            <td data-tr="kyc-date-jan05-2026">Jan 5,
+                                                2026
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="padding:20px 24px;border-left:2px solid var(--gold-lo);font-size:14px;color:var(--cream-d);line-height:1.9"
+                                data-tr="kyc-disclaimer">
                                 All compliance
                                 documentation is
                                 held securely and
@@ -1353,7 +1451,8 @@ cream)">1 active tokenisation</strong> on the platform and <strong style="color:
             <h2 id="modal-title">Asset Name</h2>
             <div class="modal-body" id="modal-body"></div>
             <div class="modal-actions">
-                <button class="modal-invest" onclick="expressInterest()" data-tr="btn-express-interest">Express Interest</button>
+                <button class="modal-invest" onclick="expressInterest()" data-tr="btn-express-interest">Express
+                    Interest</button>
                 <button class="modal-cancel" onclick="closeModal()" data-tr="btn-close">Close</button>
             </div>
         </div>
