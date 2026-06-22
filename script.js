@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       firstMove = false;
     }
     // Use translate3d for hardware-accelerated smooth cursor rendering
-    cur.style.transform = `translate3d(${e.clientX - 15}px, ${e.clientY - 7}px, 0)`;
+    cur.style.transform = `translate3d(${e.clientX - 27}px, ${e.clientY - 27}px, 0)`;
   });
 
   document.addEventListener("mouseleave", () => {
@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
             successDiv.style.transition = "opacity 0.6s ease";
 
             const currentLang = localStorage.getItem("equuschain_lang") || "en";
-            let titleText = "Access Request Accepted";
+            let titleText = "Access Request Received";
             let bodyText =
               "Thank you for your inquiry. Our relations desk will review your credentials and contact you directly.";
 
@@ -494,15 +494,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const translations = {
   en: {
-    "nav-about": "Our Approach",
+    "nav-about": "Our Conviction",
     "nav-assets": "Universe of Assets",
-    "nav-services": "Capabilities",
+    "nav-services": "Services",
     "nav-contact": "Request Access",
     "nav-contact-btn": "Request Access",
     "hero-title": "The world's<br>finest assets,<br><em>finally</em> liquid.",
     "hero-lead":
       "EquusChain<sup>™</sup> is the modern infrastructure for the ownership, exchange, and liquidity of exceptional real-world and traditional finance assets.",
-    "manifesto-tag": "I. Our Conviction",
+    "manifesto-tag": "Our Conviction",
     "manifesto-body":
       "The world's most enduring assets have always transcended markets and generations. From private enterprises to exceptional real estate, to distinguished bloodstock and fine art, their value extends beyond financial performance alone. <em>EquusChain</em><sup>™</sup> provides the infrastructure to manage, exchange, and unlock liquidity in these assets with the discretion, transparency, and efficiency they deserve.",
     "mf-stat-1-v": "Global",
@@ -513,7 +513,7 @@ const translations = {
     "mf-stat-3-l": "In Everything",
     "mf-stat-4-v": "Proper",
     "mf-stat-4-l": "Documentation",
-    "universe-subtitle": "II. Asset Universe",
+    "universe-subtitle": "Universe of Assets",
     "universe-title": "EquusChain Universe of",
     "universe-title-gold": "Exceptional Assets.",
     "universe-lead":
@@ -534,7 +534,7 @@ const translations = {
     "asset-7-sub": "Museum-grade works, rare wine, classic automobiles.",
     "asset-8-name": "And considerably more",
     "asset-8-sub": "Precious metals, structured funds, renewable energy…",
-    "services-subtitle": "III. Services",
+    "services-subtitle": "Services",
     "services-title": "What the<br>EquusChain Platform<br><em>Enables.</em>",
     "services-lead":
       "Four things. Each designed for a specific kind of relationship with capital. You may need one. You may need all four.",
@@ -558,7 +558,7 @@ const translations = {
     "service-4-body":
       "Certain platform assets are available through preferential access arrangements. Aviation, maritime, equestrian. Reserved for members.",
     "service-4-link": "Explore",
-    "contact-subtitle": "IV. Access",
+    "contact-subtitle": "Request Access",
     "contact-title": "Request<br><em>Access.</em>",
     "contact-body":
       "Every inquiry is reviewed directly by our team to ensure the quality, relevance, and integrity of the EquusChain ecosystem.",
@@ -635,16 +635,16 @@ const translations = {
     "login-back": "← Return to EquusChain.io",
   },
   fr: {
-    "nav-about": "Notre Approche",
+    "nav-about": "Notre Conviction",
     "nav-assets": "Univers des Actifs",
-    "nav-services": "Capacités",
+    "nav-services": "Services",
     "nav-contact": "Demander l'Accès",
     "nav-contact-btn": "Demander l'Accès",
     "hero-title":
       "Les plus beaux<br>actifs du monde,<br><em>enfin</em> liquides.",
     "hero-lead":
       "EquusChain<sup>™</sup> est l'infrastructure moderne pour la détention, l'échange et la liquidité d'actifs réels exceptionnels et de finance traditionnelle.",
-    "manifesto-tag": "I. Notre Conviction",
+    "manifesto-tag": "Notre Conviction",
     "manifesto-body":
       "Les actifs les plus durables au monde ont toujours transcendé les marchés et les générations. Des entreprises privées à l'immobilier exceptionnel, en passant par le pur-sang distingué et l'art de premier ordre, leur valeur va au-delà de la seule performance financière. EquusChain<sup>™</sup> fournit l'infrastructure pour gérer, échanger et débloquer la liquidité de ces actifs avec la discrétion, la transparence et l'efficacité qu'ils méritent.",
     "mf-stat-1-v": "Portée",
@@ -655,7 +655,7 @@ const translations = {
     "mf-stat-3-l": "En Tout",
     "mf-stat-4-v": "Documentation",
     "mf-stat-4-l": "Appropriée",
-    "universe-subtitle": "II. Univers des Actifs",
+    "universe-subtitle": "Univers des Actifs",
     "universe-title": "Univers d'Actifs",
     "universe-title-gold": "Exceptionnels d'EquusChain.",
     "universe-lead":
@@ -679,7 +679,7 @@ const translations = {
       "Œuvres de qualité muséale, vins rares, automobiles classiques.",
     "asset-8-name": "Et bien plus encore",
     "asset-8-sub": "Métaux précieux, fonds structurés, énergies renouvelables…",
-    "services-subtitle": "III. Services",
+    "services-subtitle": "Services",
     "services-title":
       "Ce que la plateforme<br>EquusChain rend<br><em>Possible.</em>",
     "services-lead":
@@ -704,7 +704,7 @@ const translations = {
     "service-4-body":
       "Certains actifs de la plateforme sont disponibles via des accords d'accès préférentiels. Aviation, maritime, équestre. Réservé aux membres.",
     "service-4-link": "Explorer",
-    "contact-subtitle": "IV. Accès",
+    "contact-subtitle": "Demander l'Accès",
     "contact-title": "Demander<br><em>l'Accès.</em>",
     "contact-body":
       "Chaque demande est examinée directement par notre équipe afin de garantir la qualité, la pertinence et l'intégrité de l'écosystème EquusChain.",
@@ -782,15 +782,15 @@ const translations = {
     "login-back": "← Retourner à EquusChain.io",
   },
   ar: {
-    "nav-about": "نهجنا",
+    "nav-about": "قناعتنا",
     "nav-assets": "عالم الأصول",
-    "nav-services": "القدرات",
+    "nav-services": "الخدمات",
     "nav-contact": "طلب انضمام",
     "nav-contact-btn": "طلب انضمام",
     "hero-title": "أرقى الأصول في العالم،<br>صارت <em>أخيراً</em> سائلة.",
     "hero-lead":
       "إيكوس تشين<sup>™</sup> هي البنية التحتية الحديثة لملكية وتبادل وسيولة الأصول الاستثنائية الحقيقية والمالية التقليدية.",
-    "manifesto-tag": "١. قناعتنا",
+    "manifesto-tag": "قناعتنا",
     "manifesto-body":
       "الأصول الأكثر ديمومة في العالم تجاوزت الأسواق والأجيال دائمًا. من الشركات الخاصة إلى العقارات الاستثنائية، مرورًا بالخيول الأصيلة المرموقة والفنون الجميلة، تتجاوز قيمتها الأداء المالي وحده. توفر إيكوس تشين<sup>™</sup> البنية التحتية لإدارة هذه الأصول وتبادلها وتحرير سيولتها بالسرية والشفافية والكفاءة التي تستحقها.",
     "mf-stat-1-v": "نطاق",
@@ -801,7 +801,7 @@ const translations = {
     "mf-stat-3-l": "في كل شيء",
     "mf-stat-4-v": "وثائق",
     "mf-stat-4-l": "مستوفاة",
-    "universe-subtitle": "٢. عالم الأصول",
+    "universe-subtitle": "عالم الأصول",
     "universe-title": "عالم <من إيكوس تشين.",
     "universe-title-gold": "الأصول الاستثنائية EquusChain<sup>™</sup>.",
     "universe-lead":
@@ -822,7 +822,7 @@ const translations = {
     "asset-7-sub": "أعمال ذات جودة متحفية، نبيذ نادر، سيارات كلاسيكية.",
     "asset-8-name": "وأكثر من ذلك بكثير",
     "asset-8-sub": "المعادن الثمينة، الصناديق المهيكلة، الطاقة المتجددة…",
-    "services-subtitle": "٣. الخدمات",
+    "services-subtitle": "الخدمات",
     "services-title": "ما تمكنه منصة<br>إيكوس تشين.",
     "services-lead":
       "أربعة أشياء. تم تصميم كل منها لنوع محدد من العلاقة مع رأس المال. قد تحتاج إلى واحدة. قد تحتاج إلى الأربعة معاً.",
@@ -846,7 +846,7 @@ const translations = {
     "service-4-body":
       "بعض أصول المنصة متاحة من خلال ترتيبات وصول تفضيلية مخصصة للأعضاء. الطيران، الملاحة، الفروسية.",
     "service-4-link": "استكشف",
-    "contact-subtitle": "٤. الانضمام",
+    "contact-subtitle": "طلب انضمام",
     "contact-title": "طلب<br><em>الدخول.</em>",
     "contact-body":
       "تتم مراجعة كل استفسار مباشرة من قبل فريقنا لضمان جودة وموثوقية ونزاهة منظومة إيكوس تشين.",
@@ -923,15 +923,15 @@ const translations = {
     "login-back": "← العودة إلى EquusChain.io",
   },
   it: {
-    "nav-about": "Il nostro approccio",
+    "nav-about": "La nostra convinzione",
     "nav-assets": "Universo degli attivi",
-    "nav-services": "Capacità",
+    "nav-services": "Servizi",
     "nav-contact": "Richiedi l'accesso",
     "nav-contact-btn": "Richiedi l'accesso",
     "hero-title": "I migliori attivi<br>al mondo, <em>finalmente</em> liquidi.",
     "hero-lead":
       "EquusChain<sup>™</sup> è l'infrastruttura moderna per la proprietà, lo scambio e la liquidità di attivi reali eccezionali e finanza tradizionale.",
-    "manifesto-tag": "I. La nostra convinzione",
+    "manifesto-tag": "La nostra convinzione",
     "manifesto-body":
       "Gli asset più duraturi al mondo hanno sempre trascenduto mercati e generazioni. Dalle imprese private agli immobili eccezionali, passando per il purosangue di prestigio e l'arte di alto livello, il loro valore va oltre la semplice performance finanziaria. EquusChain<sup>™</sup> fornisce l'infrastruttura per gestire, scambiare e sbloccare la liquidità di questi asset con la discrezione, la trasparenza e l'efficienza che meritano.",
     "mf-stat-1-v": "Portata",
@@ -942,7 +942,7 @@ const translations = {
     "mf-stat-3-l": "In Tutto",
     "mf-stat-4-v": "Documentazione",
     "mf-stat-4-l": "Appropriata",
-    "universe-subtitle": "II. Universo degli attivi",
+    "universe-subtitle": "Universo degli attivi",
     "universe-title": "Universo degli attivi",
     "universe-title-gold": "eccezionali EquusChain.",
     "universe-lead":
@@ -963,7 +963,7 @@ const translations = {
     "asset-7-sub": "Opere museali, vini rari, automobili d'epoca.",
     "asset-8-name": "E molto altro ancora",
     "asset-8-sub": "Metalli preziosi, fondi strutturati, energia rinnovabile…",
-    "services-subtitle": "III. Servizi",
+    "services-subtitle": "Servizi",
     "services-title": "Cosa consente la piattaforma<br>EquusChain.",
     "services-lead":
       "Quattro servizi. Ciascuno progettato per un tipo specifico di relazione con il capitale. Potresti averne bisogno di uno o di tutti e quattro.",
@@ -987,7 +987,7 @@ const translations = {
     "service-4-body":
       "Alcuni attivi della piattaforma sono disponibili tramite accordi di accesso preferenziale. Aviazione, nautica, equitazione. Riservato ai membri.",
     "service-4-link": "Esplora",
-    "contact-subtitle": "IV. Accesso",
+    "contact-subtitle": "Richiedi l'accesso",
     "contact-title": "Richiedi<br><em>l'Accesso.</em>",
     "contact-body":
       "Ogni richiesta viene esaminata direttamente dal nostro team per garantire la qualità, pertinenza e integrità dell'ecosistema EquusChain.",
@@ -1064,15 +1064,15 @@ const translations = {
     "login-back": "← Torna a EquusChain.io",
   },
   es: {
-    "nav-about": "Nuestro enfoque",
+    "nav-about": "Nuestra Convicción",
     "nav-assets": "Universo de activos",
-    "nav-services": "Capacidades",
+    "nav-services": "Servicios",
     "nav-contact": "Solicitar acceso",
     "nav-contact-btn": "Solicitar acceso",
     "hero-title": "Los mejores activos<br>del mundo, <em>al fin</em> líquidos.",
     "hero-lead":
       "EquusChain<sup>™</sup> es la infraestructura moderna para la propiedad, el intercambio y la liquidez de activos reales excepcionales y finanzas tradicionales.",
-    "manifesto-tag": "I. Nuestra Convicción",
+    "manifesto-tag": "Nuestra Convicción",
     "manifesto-body":
       "Los activos más duraderos del mundo siempre han trascendido mercados y generaciones. Desde empresas privadas hasta propiedades excepcionales, pasando por caballos de sangre pura distinguidos y arte de primer nivel, su valor va más allá del rendimiento financiero por sí solo. EquusChain<sup>™</sup> proporciona la infraestructura para gestionar, intercambiar y desbloquear la liquidez de estos activos con la discreción, transparencia y eficiencia que merecen.",
     "mf-stat-1-v": "Alcance",
@@ -1083,7 +1083,7 @@ const translations = {
     "mf-stat-3-l": "En Todo",
     "mf-stat-4-v": "Documentación",
     "mf-stat-4-l": "Adecuada",
-    "universe-subtitle": "II. Universo de activos",
+    "universe-subtitle": "Universo de activos",
     "universe-title": "Universo de activos",
     "universe-title-gold": "excepcionales de EquusChain.",
     "universe-lead":
@@ -1105,7 +1105,7 @@ const translations = {
     "asset-8-name": "Y considerablemente más",
     "asset-8-sub":
       "Metales preciosos, fondos estructurados, energía renovable…",
-    "services-subtitle": "III. Servicios",
+    "services-subtitle": "Servicios",
     "services-title": "Lo que la plataforma<br>EquusChain permite.",
     "services-lead":
       "Cuatro servicios. Cada uno diseñado para un tipo de relación específica con el capital. Puede necesitar uno o los cuatro.",
@@ -1129,7 +1129,7 @@ const translations = {
     "service-4-body":
       "Ciertos activos de la plataforma están disponibles a través de acuerdos de acceso preferencial. Aviación, marítimo, ecuestre. Reservado para miembros.",
     "service-4-link": "Explorar",
-    "contact-subtitle": "IV. Access",
+    "contact-subtitle": "Solicitar acceso",
     "contact-title": "Solicitar<br><em>Acceso.</em>",
     "contact-body":
       "Cada solicitud es revisada directamente por nuestro equipo para asegurar la calidad, relevancia e integridad del ecosistema de EquusChain.",
@@ -1207,7 +1207,7 @@ const translations = {
     "login-back": "← Volver a EquusChain.io",
   },
   de: {
-    "nav-about": "Unser Ansatz",
+    "nav-about": "Unsere Überzeugung",
     "nav-assets": "Anlageuniversum",
     "nav-services": "Dienstleistungen",
     "nav-contact": "Zugang anfordern",
@@ -1215,7 +1215,7 @@ const translations = {
     "hero-title": "Die erlesensten Sachwerte,<br><em>endlich</em> liquide.",
     "hero-lead":
       "EquusChain<sup>™</sup> ist die moderne Infrastruktur für Eigentum, Austausch und Liquidität außergewöhnlicher Real-World- und traditioneller Finanzwerte.",
-    "manifesto-tag": "I. Unsere Überzeugung",
+    "manifesto-tag": "Unsere Überzeugung",
     "manifesto-body":
       "Die beständigsten Vermögenswerte der Welt haben Märkte und Generationen immer überdauert. Von Privatunternehmen bis hin zu außergewöhnlichen Immobilien, über distinguierte Vollblutpferde und erstklassige Kunst – ihr Wert geht über reine Finanzperformance hinaus. EquusChain<sup>™</sup> bietet die Infrastruktur, um diese Vermögenswerte mit der Diskretion, Transparenz und Effizienz zu verwalten, zu handeln und ihre Liquidität freizusetzen.",
     "mf-stat-1-v": "Globale",
@@ -1226,7 +1226,7 @@ const translations = {
     "mf-stat-3-l": "In Allem",
     "mf-stat-4-v": "Ordnungsgemäße",
     "mf-stat-4-l": "Dokumentation",
-    "universe-subtitle": "II. Anlageuniversum",
+    "universe-subtitle": "Anlageuniversum",
     "universe-title": "außergewöhnlicher Sachwerte.",
     "universe-title-gold": "Das außergewöhnliche EquusChain-Universum.",
     "universe-lead":
@@ -1248,7 +1248,7 @@ const translations = {
     "asset-7-sub": "Museale Kunstwerke, seltene Weine, klassische Automobile.",
     "asset-8-name": "Und vieles mehr",
     "asset-8-sub": "Edelmetalle, strukturierte Fonds, erneuerbare Energien…",
-    "services-subtitle": "III. Dienstleistungen",
+    "services-subtitle": "Dienstleistungen",
     "services-title": "Was die EquusChain-Plattform<br>ermöglicht.",
     "services-lead":
       "Vier Säulen. Jede für eine spezifische Beziehung zu Kapital konzipiert. Sie benötigen eventuell eine oder alle vier.",
@@ -1272,7 +1272,7 @@ const translations = {
     "service-4-body":
       "Bestimmte Plattform-Assets sind über bevorzugte Nutzungsvereinbarungen zugänglich. Luftfahrt, Schifffahrt, Pferdesport. Reserviert für Mitglieder.",
     "service-4-link": "Erkunden",
-    "contact-subtitle": "IV. Zugang",
+    "contact-subtitle": "Zugang anfordern",
     "contact-title": "Zugang<br><em>anfordern.</em>",
     "contact-body":
       "Jede Anfrage wird direkt von unserem Team geprüft, um die Qualität, Relevanz und Integrität des EquusChain-Ökosystems zu gewährleisten.",
@@ -1350,15 +1350,15 @@ const translations = {
     "login-back": "← Zurück zu EquusChain.io",
   },
   pt: {
-    "nav-about": "Nossa abordagem",
+    "nav-about": "Nossa Convicção",
     "nav-assets": "Universo de ativos",
-    "nav-services": "Capacidades",
+    "nav-services": "Serviços",
     "nav-contact": "Solicitar acesso",
     "nav-contact-btn": "Solicitar acesso",
     "hero-title": "Os mais finos ativos,<br><em>finalmente</em> líquidos.",
     "hero-lead":
       "EquusChain<sup>™</sup> é a infraestrutura moderna para a propriedade, negociação e liquidez de ativos reais excepcionais e finanças tradicionais.",
-    "manifesto-tag": "I. Nossa Convicção",
+    "manifesto-tag": "Nossa Convicção",
     "manifesto-body":
       "Os ativos mais duradouros do mundo sempre transcenderam mercados e gerações. Desde empresas privadas até imóveis excepcionais, passando por cavalos de sangue pura distintos e arte de primeira linha, seu valor vai além do desempenho financeiro por si só. EquusChain<sup>™</sup> fornece a infraestrutura para gerenciar, negociar e desbloquear a liquidez desses ativos com a discrição, transparência e eficiência que merecem.",
     "mf-stat-1-v": "Alcance",
@@ -1369,7 +1369,7 @@ const translations = {
     "mf-stat-3-l": "Em Tudo",
     "mf-stat-4-v": "Documentação",
     "mf-stat-4-l": "Adequada",
-    "universe-subtitle": "II. Universo de ativos",
+    "universe-subtitle": "Universo de ativos",
     "universe-title": "Universo de ativos",
     "universe-title-gold": "excepcionais EquusChain.",
     "universe-lead":
@@ -1391,7 +1391,7 @@ const translations = {
     "asset-7-sub": "Obras dignas de museus, vinhos raros, carros clássicos.",
     "asset-8-name": "E muito mais",
     "asset-8-sub": "Metais preciosos, fundos estruturados, energia renovável…",
-    "services-subtitle": "III. Serviços",
+    "services-subtitle": "Serviços",
     "services-title": "O que a plataforma<br>EquusChain permite.",
     "services-lead":
       "Quatro soluções. Cada uma desenhada para um tipo de relação com o capital. Você pode precisar de uma ou de todas.",
@@ -1415,7 +1415,7 @@ const translations = {
     "service-4-body":
       "Certos ativos da plataforma estão disponíveis por acordos de acesso preferencial. Aviação, marítimo, hípico. Reservado a membros.",
     "service-4-link": "Explorar",
-    "contact-subtitle": "IV. Acesso",
+    "contact-subtitle": "Solicitar acesso",
     "contact-title": "Solicitar<br><em>Acesso.</em>",
     "contact-body":
       "Cada solicitação é revista diretamente pela nossa equipa para assegurar a qualidade, relevância e integridade do ecossistema EquusChain.",
@@ -1492,15 +1492,15 @@ const translations = {
     "login-back": "← Voltar para EquusChain.io",
   },
   ru: {
-    "nav-about": "Наш подход",
+    "nav-about": "Наше кредо",
     "nav-assets": "Вселенная активов",
-    "nav-services": "Возможности",
+    "nav-services": "Услуги",
     "nav-contact": "Запросить доступ",
     "nav-contact-btn": "Запросить доступ",
     "hero-title": "Лучшие мировые активы,<br><em>наконец-то</em> ликвидные.",
     "hero-lead":
       "EquusChain<sup>™</sup> — современная инфраструктура для владения, обмена и обеспечения ликвидности исключительных реальных активов и традиционных финансов.",
-    "manifesto-tag": "I. Наше кредо",
+    "manifesto-tag": "Наше кредо",
     "manifesto-body":
       "Самые ценные активы в мире всегда имели реальную ценность: земля, чистокровные лошади, частные компании, построенные на протяжении десятилетий, или произведения искусства, пережившие свой век. Однако структуры, созданные для владения ими, часто оказываются непрозрачными, неликвидными и недоступными. <em>Мы меняем это</em>.",
     "mf-stat-1-v": "Глобальный",
@@ -1511,7 +1511,7 @@ const translations = {
     "mf-stat-3-l": "Во всем",
     "mf-stat-4-v": "Надлежащая",
     "mf-stat-4-l": "Документация",
-    "universe-subtitle": "II. Вселенная активов",
+    "universe-subtitle": "Вселенная активов",
     "universe-title": "Вселенная исключительных",
     "universe-title-gold": "активов EquusChain.",
     "universe-lead":
@@ -1536,7 +1536,7 @@ const translations = {
     "asset-8-name": "И многое другое",
     "asset-8-sub":
       "Благородные металлы, структурированные фонды, возобновляемая энергия…",
-    "services-subtitle": "III. Услуги",
+    "services-subtitle": "Услуги",
     "services-title": "Что позволяет делать<br>платформа EquusChain.",
     "services-lead":
       "Четыре направления. Каждое создано для особых отношений с капиталом. Вам может потребоваться одно или все четыре.",
@@ -1560,7 +1560,7 @@ const translations = {
     "service-4-body":
       "Некоторые активы платформы доступны по соглашениям о преференциальном доступе. Авиация, флот, конный спорт. Только для членов клуба.",
     "service-4-link": "Исследовать",
-    "contact-subtitle": "IV. Доступ",
+    "contact-subtitle": "Запросить доступ",
     "contact-title": "Запросить<br><em>Доступ.</em>",
     "contact-body":
       "Каждый запрос рассматривается нашей командой напрямую, чтобы гарантировать качество, релевантность и целостность экосистемы EquusChain.",
@@ -1637,15 +1637,15 @@ const translations = {
     "login-back": "← Вернуться на EquusChain.io",
   },
   zh: {
-    "nav-about": "我们的方法",
+    "nav-about": "我们的信念",
     "nav-assets": "资产世界",
-    "nav-services": "核心功能",
+    "nav-services": "服务",
     "nav-contact": "申请访问",
     "nav-contact-btn": "申请访问",
     "hero-title": "全球顶尖资产，<br><em>终迎</em>流动性。",
     "hero-lead":
       "EquusChain<sup>™</sup> 是面向非凡真实世界与传统金融资产的所有权、交易 and 和流动性的现代基础设施。",
-    "manifesto-tag": "I. 我们的信念",
+    "manifesto-tag": "我们的信念",
     "manifesto-body":
       "世界上最持久的资产总是超越市场和代际。从私人企业到非凡的房地产，再到著名的纯种赛马和顶级艺术品，它们的价值不仅仅在于财务表现本身。EquusChain<sup>™</sup> 提供了管理、交易和释放这些资产流动性的基础设施，并以它们应有的严谨性、透明度和效率。",
     "mf-stat-1-v": "全球",
@@ -1656,7 +1656,7 @@ const translations = {
     "mf-stat-3-l": "贯穿始终",
     "mf-stat-4-v": "完善",
     "mf-stat-4-l": "文件记录",
-    "universe-subtitle": "II. 资产星系",
+    "universe-subtitle": "资产世界",
     "universe-title": "的庞大宇宙。",
     "universe-title-gold": "非凡 EquusChain",
     "universe-lead":
@@ -1677,7 +1677,7 @@ const translations = {
     "asset-7-sub": "博物馆级艺术品、珍稀名酒、经典名车。",
     "asset-8-name": "以及更多资产",
     "asset-8-sub": "贵金属、结构化基金、可再生能源等…",
-    "services-subtitle": "III. 平台服务",
+    "services-subtitle": "服务",
     "services-title": "EquusChain 平台<br>所赋能的维度。",
     "services-lead":
       "四大维度。每一个都专为特定的资本关系而设计。您可能需要其中一个，也可能需要全部。",
@@ -1701,7 +1701,7 @@ const translations = {
     "service-4-body":
       "平台内的特定资产可通过优先协议访问。航空、航海、马术。专为会员保留。",
     "service-4-link": "立即探索",
-    "contact-subtitle": "IV. 访问",
+    "contact-subtitle": "申请访问",
     "contact-title": "申请<br><em>访问。</em>",
     "contact-body":
       "我们团队会直接审核每一份申请，以维护 EquusChain 生态系统的品质、关联度与完整性。",
@@ -1777,15 +1777,15 @@ const translations = {
     "login-back": "← 返回 EquusChain.io",
   },
   hi: {
-    "nav-about": "हमारा दृष्टिकोण",
+    "nav-about": "हमारा विश्वास",
     "nav-assets": "संपत्ति ब्रह्मांड",
-    "nav-services": "क्षमताएं",
+    "nav-services": "सेवाएं",
     "nav-contact": "पहुंच का अनुरोध",
     "nav-contact-btn": "पहुंच का अनुरोध",
     "hero-title": "विश्व की बेहतरीन संपत्तियां,<br><em>आखिरकार</em> तरल।",
     "hero-lead":
       "इक्वसचेन<sup>™</sup> असाधारण वास्तविक और पारंपरिक वित्तीय संपत्तियों के स्वामित्व, विनिमय और तरलता के लिए आधुनिक बुनियादी ढांचा है।",
-    "manifesto-tag": "I. हमारा विश्वास",
+    "manifesto-tag": "हमारा विश्वास",
     "manifesto-body":
       "दुनिया की सबसे टिकाऊ संपत्तियां हमेशा बाजार और पीढ़ियों से परे रही हैं। निजी व्यवसायों से लेकर असाधारण अचल संपत्ति, प्रतिष्ठित शुद्ध-रक्त घोड़ों और उच्च-स्तरीय कला तक, उनका मूल्य केवल वित्तीय प्रदर्शन से कहीं अधिक है। इक्वसचेन<sup>™</sup> इन संपत्तियों को उस कठोरता, पारदर्शिता और दक्षता के साथ प्रबंधित करने, व्यापार करने और उनकी तरलता को अनलॉक करने के लिए बुनियादी ढांचा प्रदान करता है जिसके वे हकदार हैं।",
     "mf-stat-1-v": "वैश्विक",
@@ -1796,7 +1796,7 @@ const translations = {
     "mf-stat-3-l": "हर चीज में",
     "mf-stat-4-v": "उचित",
     "mf-stat-4-l": "दस्तावेज़ीकरण",
-    "universe-subtitle": "II. संपत्ति ब्रह्मांड",
+    "universe-subtitle": "संपत्ति ब्रह्मांड",
     "universe-title": "संपत्ति ब्रह्मांड।",
     "universe-title-gold": "असाधारण EquusChain",
     "universe-lead":
@@ -1817,7 +1817,7 @@ const translations = {
     "asset-7-sub": "संग्रहालय-ग्रेड कार्य, दुर्लभ वाइन, क्लासिक ऑटोमोबाइल।",
     "asset-8-name": "और काफी कुछ",
     "asset-8-sub": "कीमती धातुएं, संरचित फंड, नवीकरणीय ऊर्जा…",
-    "services-subtitle": "III. सेवाएं",
+    "services-subtitle": "सेवाएं",
     "services-title": "इक्वसचेन प्लेटफॉर्म क्या<br>सक्षम बनाता है।",
     "services-lead":
       "चार चीजें। प्रत्येक पूंजी के साथ एक विशिष्ट संबंध के लिए डिज़ाइन की गई है। आपको एक या चारों की आवश्यकता हो सकती है।",
@@ -1841,7 +1841,7 @@ const translations = {
     "service-4-body":
       "कुछ प्लेटफॉर्म संपत्तियां अधिमान्य पहुंच व्यवस्थाओं के माध्यम से उपलब्ध हैं। विमानन, समुद्री, घुड़सवारी। सदस्यों के लिए आरक्षित।",
     "service-4-link": "अन्वेषण करें",
-    "contact-subtitle": "IV. पहुंच",
+    "contact-subtitle": "पहुंच का अनुरोध",
     "contact-title": "अनुरोध<br><em>पहुंच।</em>",
     "contact-body":
       "इक्वसचेन पारिस्थितिकी तंत्र की गुणवत्ता, प्रासंगिकता और अखंडता सुनिश्चित करने के लिए हमारी टीम द्वारा सीधे हर पूछताछ की समीक्षा की जाती है।",
@@ -1919,15 +1919,15 @@ const translations = {
     "login-back": "← EquusChain.io पर वापस लौटें",
   },
   ja: {
-    "nav-about": "アプローチ",
+    "nav-about": "私たちの信念",
     "nav-assets": "資産の宇宙",
-    "nav-services": "提供機能",
+    "nav-services": "サービス",
     "nav-contact": "アクセス申請",
     "nav-contact-btn": "アクセス申請",
     "hero-title": "世界最高の資産を、<br><em>ついに</em>流動化。",
     "hero-lead":
-      "EquusChain<sup>™</sup>は、卓越した実物資産および伝統的金融資産の所有、取引、流動化のためのモダンなインフラストラクチャです。",
-    "manifesto-tag": "I. 私たちの信念",
+      "EquusChain<sup>™</sup>は、卓越した実物資産および伝統的金融資産 of の所有、取引、流動化のためのモダンなインフラストラクチャです。",
+    "manifesto-tag": "私たちの信念",
     "manifesto-body":
       "世界で最も永続的な資産は常に市場と世代を超えて存在してきました。プライベートビジネスから卓越した不動産、象徴的な純血種競走馬、一流のアート作品まで、その価値は単なる財務実績を超えています。EquusChain<sup>™</sup> は、これらの資産にふさわしい厳格さ、透明性、効率性をもって管理、取引、流動性を解放するためのインフラストラクチャを提供します。",
     "mf-stat-1-v": "グローバル",
@@ -1938,7 +1938,7 @@ const translations = {
     "mf-stat-3-l": "厳秘",
     "mf-stat-4-v": "適切な",
     "mf-stat-4-l": "書類手続き",
-    "universe-subtitle": "II. 資産の宇宙",
+    "universe-subtitle": "資産の宇宙",
     "universe-title": "卓越した資産の宇宙。",
     "universe-title-gold": "卓越した EquusChain.",
     "universe-lead":
@@ -1959,7 +1959,7 @@ const translations = {
     "asset-7-sub": "美術館級の芸術品、希少ワイン、クラシックカー。",
     "asset-8-name": "その他多数の資産",
     "asset-8-sub": "貴金属、構造化ファンド、再生可能エネルギーなど…",
-    "services-subtitle": "III. サービス",
+    "services-subtitle": "サービス",
     "services-title": "EquusChainプラットフォームが<br>実現するもの。",
     "services-lead":
       "4つの主要サービス。それぞれ特定の資本関係に合わせて設計されています。1つだけ必要な場合も、4つすべてが必要な場合もあります。",
@@ -1983,7 +1983,7 @@ const translations = {
     "service-4-body":
       "プラットフォームの特定の資産は、優先アクセス契約を通じてご利用いただけます。航空、海洋、馬術。会員専用。",
     "service-4-link": "探索する",
-    "contact-subtitle": "IV. アクセス",
+    "contact-subtitle": "アクセス申請",
     "contact-title": "アクセスを<br><em>申請する。</em>",
     "contact-body":
       "すべての問い合わせは、EquusChainエコシステムの品質、関連性、完全性を担保するため、当社のチームが直接審査いたします。",
