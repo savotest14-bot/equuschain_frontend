@@ -44,8 +44,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
-  /* Enforce custom cursor globally */
+}
+
+@media (min-width: 993px) {
+
+  body.landing-cursor-active,
+  body.landing-cursor-active * {
+    cursor: none !important;
+  }
 }
 
 html {
@@ -71,94 +77,106 @@ sup {
   margin-left: 0.15em;
 }
 
-/* ─── CUSTOM CURSOR ──────────────────────── */
-#cur {
+/* ─── CUSTOM CURSOR (SMOOTH & LERP IMPLEMENTATION) ─── */
+.custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999;
   pointer-events: none;
-  transform: translate(-27px, -27px);
-  display: block;
-  will-change: transform;
-  transition:
-    transform 0.04s linear,
-    opacity 0.3s ease;
+  z-index: 99999;
   opacity: 0;
-  /* Hidden initially to avoid top-left flash */
+  transition: opacity 0.3s ease;
 }
 
-#cur,
-#cur * {
+.custom-cursor,
+.custom-cursor * {
   pointer-events: none !important;
 }
 
-.cursor-emblem {
-  width: 54px;
-  height: 54px;
+.cursor-dot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: var(--g3);
+  color: var(--eq-blue-dark);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  border: 1px dashed rgba(193, 158, 107, 0.65);
-  border-radius: 50%;
-  pointer-events: none;
-  transition:
-    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-    border-color 0.3s ease;
-}
-
-.cursor-emblem::before {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background: var(--g3);
-  border-radius: 50%;
-  z-index: 1;
-  box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.45);
-  transition:
-    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.cursor-emblem-text {
-  position: relative;
-  z-index: 2;
-  font-family: "Cormorant SC", "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-family: 'Cormorant SC', 'Cormorant Garamond', serif;
   font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--eq-blue-dark);
-  transition: color 0.3s ease;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+  z-index: 100002;
+  box-shadow: 0 0 10px rgba(193, 158, 107, 0.4), 0 0 20px rgba(193, 158, 107, 0.15);
 }
 
-body.cursor-hovering #cur .cursor-emblem {
-  transform: scale(1.15);
-  border-color: rgba(242, 235, 217, 0.45);
+/* Pulsing glow on the dot */
+.cursor-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(193, 158, 107, 0.15);
+  animation: cursorPulse 2s ease-in-out infinite;
+  z-index: -1;
 }
 
-body.cursor-hovering #cur .cursor-emblem::before {
-  background: var(--p);
-  transform: scale(1.08);
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
-}
+@keyframes cursorPulse {
 
-body.cursor-hovering #cur .cursor-emblem-text {
-  color: var(--eq-blue-dark);
-}
-
-/* Fallback for devices without fine pointers (touch screens) */
-@media (hover: none) {
-  #cur {
-    display: none !important;
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
   }
 
-  *,
-  *::before,
-  *::after {
-    cursor: auto !important;
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.cursor-ring {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed rgba(193, 158, 107, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  transition:
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    border-width 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  z-index: 100001;
+}
+
+/* Hover expansion state when mouse is over interactive elements */
+.custom-cursor.hover .cursor-dot {
+  background: var(--p);
+  color: var(--eq-blue-dark);
+  box-shadow: 0 0 16px rgba(193, 158, 107, 0.6), 0 0 32px rgba(193, 158, 107, 0.25);
+}
+
+.custom-cursor.hover .cursor-ring {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--g3);
+  background: rgba(193, 158, 107, 0.06);
+  box-shadow: 0 0 24px rgba(193, 158, 107, 0.2), inset 0 0 12px rgba(193, 158, 107, 0.05);
+}
+
+@media (max-width: 992px) {
+  .custom-cursor {
+    display: none !important;
   }
 }
 
@@ -2023,6 +2041,7 @@ body {
   padding: 20px 0;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .sb-section {

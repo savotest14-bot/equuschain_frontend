@@ -1,35 +1,89 @@
 /* ─── EQUUSCHAIN GLOBAL INTERACTIVE SCRIPT ──────────────── */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ─── 1. CUSTOM CURSOR TRACKING ─────────────────────────────────
-  const cur = document.getElementById("cur");
-  let firstMove = true;
+  // ─── 1. CUSTOM CURSOR TRACKING (LERP & SMOOTH FOLLOW) ─────────────────
+  const cursor = document.getElementById("custom-cursor");
+  const cursorDot = cursor ? cursor.querySelector(".cursor-dot") : null;
+  const cursorRing = cursor ? cursor.querySelector(".cursor-ring") : null;
 
-  document.addEventListener("mousemove", (e) => {
-    if (firstMove) {
-      cur.style.opacity = "1";
-      firstMove = false;
-    }
-    // Use translate3d for hardware-accelerated smooth cursor rendering
-    cur.style.transform = `translate3d(${e.clientX - 27}px, ${e.clientY - 27}px, 0)`;
-  });
+  if (cursor && cursorDot && cursorRing) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let dotX = 0;
+    let dotY = 0;
+    let ringX = 0;
+    let ringY = 0;
+    let ringAngle = 0;
+    let dotScale = 1;
+    let firstMove = true;
+    let isInside = false;
 
-  document.addEventListener("mouseleave", () => {
-    cur.style.opacity = "0";
-    firstMove = true;
-  });
+    // Track mouse coordinates on movement
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
 
-  // Cursor hover effects using event delegation
-  document.addEventListener("mouseover", (e) => {
-    const interactive = e.target.closest(
-      "a, button, select, input, textarea, .lang-option, .cb-container, .modal-close",
-    );
-    if (interactive) {
-      document.body.classList.add("cursor-hovering");
-    } else {
-      document.body.classList.remove("cursor-hovering");
-    }
-  });
+      if (firstMove) {
+        // Initialize position immediately to prevent jump from (0,0)
+        dotX = mouseX;
+        dotY = mouseY;
+        ringX = mouseX;
+        ringY = mouseY;
+        firstMove = false;
+      }
+
+      if (!isInside && window.innerWidth > 992) {
+        cursor.style.opacity = "1";
+        document.body.classList.add("landing-cursor-active");
+        isInside = true;
+      }
+    });
+
+    // Hide cursor when leaving the window
+    document.addEventListener("mouseleave", () => {
+      cursor.style.opacity = "0";
+      document.body.classList.remove("landing-cursor-active");
+      isInside = false;
+      firstMove = true;
+    });
+
+    // Smooth loop with Linear Interpolation (LERP)
+    const renderCursor = () => {
+      if (window.innerWidth > 992 && isInside) {
+        // Lerp logic for inner dot (faster follow)
+        dotX += (mouseX - dotX) * 0.25;
+        dotY += (mouseY - dotY) * 0.25;
+
+        // Lerp logic for outer ring (slower follow trailing delay)
+        ringX += (mouseX - ringX) * 0.08;
+        ringY += (mouseY - ringY) * 0.08;
+
+        // Increment rotation angle (~1.5 deg per frame)
+        ringAngle += 1.5;
+
+        // Smooth scale transition for dot on hover
+        const targetScale = cursor.classList.contains("hover") ? 0.7 : 1.0;
+        dotScale += (targetScale - dotScale) * 0.2;
+
+        cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%) scale(${dotScale})`;
+        cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) rotate(${ringAngle}deg)`;
+      }
+      requestAnimationFrame(renderCursor);
+    };
+    requestAnimationFrame(renderCursor);
+
+    // Hover interactions using event delegation
+    document.addEventListener("mouseover", (e) => {
+      const interactive = e.target.closest(
+        "a, button, select, input, textarea, .lang-option, .cb-container, .modal-close",
+      );
+      if (interactive) {
+        cursor.classList.add("hover");
+      } else {
+        cursor.classList.remove("hover");
+      }
+    });
+  }
 
   // ─── 2. STICKY NAVBAR & BACK-TO-TOP SCROLL ACTIONS ─────────────
   const navContainer = document.querySelector(".nav-container");
