@@ -283,15 +283,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Public terms/privacy modals triggers
+  // Public terms/privacy/cookies modals triggers
   const termsModal = document.getElementById("termsModal");
   const privacyModal = document.getElementById("privacyModal");
+  const cookiesModal = document.getElementById("cookiesModal");
   const closeTerms = document.getElementById("closeTerms");
   const closePrivacy = document.getElementById("closePrivacy");
+  const closeCookies = document.getElementById("closeCookies");
 
   function showModal(modal) {
     if (!modal) return;
     modal.classList.add("show");
+    modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   }
@@ -299,56 +302,61 @@ document.addEventListener("DOMContentLoaded", () => {
   function hideModal(modal) {
     if (!modal) return;
     modal.classList.remove("show");
+    modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
   }
 
-  if (termsModal && privacyModal) {
-    document.addEventListener("click", (e) => {
-      const target = e.target;
-      if (target.closest("#termsLink")) {
-        e.preventDefault();
-        showModal(termsModal);
-      } else if (
-        target.closest("#privacyLink") ||
-        target.closest("#cookieLearnMore")
-      ) {
-        e.preventDefault();
-        showModal(privacyModal);
-      }
-    });
+  // Delegated click handler for terms, privacy, and cookies modal triggers
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.closest("#termsLink")) {
+      e.preventDefault();
+      showModal(termsModal);
+    } else if (target.closest("#privacyLink")) {
+      e.preventDefault();
+      showModal(privacyModal);
+    } else if (target.closest("#cookieLearnMore")) {
+      e.preventDefault();
+      showModal(cookiesModal);
+    }
+  });
 
-    document
-      .querySelectorAll(".ft-lnks a, .modal-trigger")
-      .forEach((trigger) => {
-        trigger.addEventListener("click", (e) => {
-          e.preventDefault();
-          const href = trigger.getAttribute("href");
-          if (href === "#termsModal") {
-            showModal(termsModal);
-          } else if (href === "#privacyModal") {
-            showModal(privacyModal);
-          }
-        });
+  document
+    .querySelectorAll(".ft-lnks a, .modal-trigger")
+    .forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = trigger.getAttribute("href");
+        if (href === "#termsModal") {
+          showModal(termsModal);
+        } else if (href === "#privacyModal") {
+          showModal(privacyModal);
+        } else if (href === "#cookiesModal") {
+          showModal(cookiesModal);
+        }
       });
-
-    if (closeTerms) {
-      closeTerms.addEventListener("click", () => hideModal(termsModal));
-    }
-    if (closePrivacy) {
-      closePrivacy.addEventListener("click", () => hideModal(privacyModal));
-    }
-
-    [termsModal, privacyModal].forEach((modal) => {
-      if (modal) {
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            hideModal(modal);
-          }
-        });
-      }
     });
+
+  if (closeTerms) {
+    closeTerms.addEventListener("click", () => hideModal(termsModal));
   }
+  if (closePrivacy) {
+    closePrivacy.addEventListener("click", () => hideModal(privacyModal));
+  }
+  if (closeCookies) {
+    closeCookies.addEventListener("click", () => hideModal(cookiesModal));
+  }
+
+  [termsModal, privacyModal, cookiesModal].forEach((modal) => {
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          hideModal(modal);
+        }
+      });
+    }
+  });
 
   // ─── 7. FORM VALIDATION & SUCCESS HANDLER ──────────────────────
   const accessForm = document.getElementById("accessForm");
@@ -656,6 +664,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. All rights reserved. The information contained on this website is provided for informational purposes only and does not constitute investment, legal, tax, or financial advice, nor an offer or solicitation to buy or sell any security, financial instrument, or asset. Access to certain services and opportunities may be restricted based on jurisdiction, investor classification, and applicable laws. Investments involve risk, including the possible loss of capital. Users are responsible for ensuring compliance with the laws and regulations applicable to them.",
     "ft-privacy": "Privacy",
+    "ft-cookies": "Cookies",
     "ft-terms": "Terms",
     "cookie-title": "We use cookies",
     "cookie-body":
@@ -802,6 +811,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Tous droits réservés. Les informations contenues sur ce site Web sont fournies à titre informatif uniquement et ne constituent pas un conseil en investissement, juridique, fiscal ou financier, ni une offre ou une sollicitation d'achat ou de vente de tout titre, instrument financier ou actif. L'accès à certains services et opportunités peut être limité en fonction de la juridiction, de la classification de l'investisseur et des lois applicables. Les investissements comportent des risques, y compris la perte possible de capital.",
     "ft-privacy": "Confidentialité",
+    "ft-cookies": "Cookies",
     "ft-terms": "Conditions",
     "cookie-title": "Nous utilisons des cookies",
     "cookie-body":
@@ -944,6 +954,7 @@ const translations = {
     "ft-disclaimer":
       "© ٢٠٢٦ شركة إيكوس تشين المحدودة. جميع الحقوق محفوظة. المعلومات الواردة في هذا الموقع هي لأغراض إعلامية فقط ولا تشكل نصيحة استثمارية أو قانونية أو ضريبية أو مالية، كما لا تمثل عرضاً أو التماساً لشراء أو بيع أي ورقة مالية أو أداة مالية أو أصل. قد يكون الدخول إلى بعض الخدمات مقيداً بناءً على الولاية القضائية وتصنيف المستثمر والقوانين المعمول بها. ينطوي الاستثمار على مخاطر، بما في ذلك احتمال خسارة رأس المال.",
     "ft-privacy": "الخصوصية",
+    "ft-cookies": "الكوكيز",
     "ft-terms": "الشروط",
     "cookie-title": "نحن نستخدم الكوكيز",
     "cookie-body":
@@ -1084,6 +1095,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Tutti i diritti riservati. Le informazioni contenute in questo sito web sono fornite solo a scopo informativo e non costituiscono consulenza finanziaria, legale o fiscale, né un'offerta o una sollecitazione all'acquisto o alla vendita di strumenti finanziari. L'accesso a determinati servizi può essere limitato a seconda della giurisdizione e delle leggi applicabili.",
     "ft-privacy": "Privacy",
+    "ft-cookies": "Cookie",
     "ft-terms": "Termini",
     "cookie-title": "Utilizziamo i cookie",
     "cookie-body":
@@ -1227,6 +1239,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Todos los derechos reservados. La información de este sitio web es puramente informativa y no constituye asesoramiento financiero, legal o fiscal, ni una oferta de compra o venta de ningún instrumento financiero o activo.",
     "ft-privacy": "Privacidad",
+    "ft-cookies": "Cookies",
     "ft-terms": "Términos",
     "cookie-title": "Usamos cookies",
     "cookie-body":
@@ -1370,6 +1383,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Alle Rechte vorbehalten. Die Informationen auf dieser Website dienen ausschließlich Informationszwecken und stellen keine Anlageberatung dar. Investitionen bergen Risiken bis hin zum vollständigen Kapitalverlust.",
     "ft-privacy": "Datenschutz",
+    "ft-cookies": "Cookies",
     "ft-terms": "Bedingungen",
     "cookie-title": "Wir verwenden Cookies",
     "cookie-body":
@@ -1512,6 +1526,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Todos os direitos reservados. As informações contidas neste website são fornecidas apenas para fins informativos e não constituem aconselhamento de investimento, jurídico ou fiscal.",
     "ft-privacy": "Privacidade",
+    "ft-cookies": "Cookies",
     "ft-terms": "Termos",
     "cookie-title": "Usamos cookies",
     "cookie-body":
@@ -1658,6 +1673,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. Все права защищены. Информация на данном веб-сайте носит исключительно ознакомительный характер и не является инвестиционной, юридической или налоговой консультацией.",
     "ft-privacy": "Конфиденциальность",
+    "ft-cookies": "Файлы cookie",
     "ft-terms": "Правила",
     "cookie-title": "Мы используем файлы cookie",
     "cookie-body":
@@ -1798,6 +1814,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. 保留所有权利。本网站所载信息仅供参考，不构成任何投资、法律、税务或财务建议，亦不构成购买或出售任何证券或资产的要约。",
     "ft-privacy": "隐私政策",
+    "ft-cookies": "Cookie",
     "ft-terms": "使用条款",
     "cookie-title": "我们使用 Cookie",
     "cookie-body":
@@ -1939,6 +1956,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 इक्वसचेन लिमिटेड। सर्वाधिकार सुरक्षित। इस वेबसाइट पर दी गई जानकारी केवल सूचनात्मक उद्देश्यों के लिए प्रदान की गई है और यह निवेश, कानूनी, कर या वित्तीय सलाह का गठन नहीं करती है।",
     "ft-privacy": "गोपनीयता",
+    "ft-cookies": "कुकीज़",
     "ft-terms": "नियम",
     "cookie-title": "हम कुकीज़ का उपयोग करते हैं",
     "cookie-body":
@@ -2064,7 +2082,8 @@ const translations = {
     "opt-interest-8": "一般的な問い合わせ",
     "form-note-label": "簡単なメモ（任意）",
     "form-newsletter-text": "EquusChainの厳選ニュースレターの購読を希望する",
-    "form-consent-text": "利用規約およびプライバシーポリシーを読み、同意します",
+    "form-consent-text":
+      '私は<a href="#termsModal" class="live-link" id="termsLink">利用規約</a>および<a href="#privacyModal" class="live-link" id="privacyLink">プライバシーポリシー</a>を読み、これに同意することを確認します',
     "form-submit-btn": "申請を送信する",
     "form-note-footer":
       "お問い合わせ内容は完全に極秘として扱われます。第三者と詳細を共有することはありません。",
@@ -2079,6 +2098,7 @@ const translations = {
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. 無断複写・転載を禁じます。本ウェブサイトに掲載されている情報は情報提供のみを目的としており、投資、法律、税務、財務に関するアドバイスを構成するものではありません。",
     "ft-privacy": "プライバシー",
+    "ft-cookies": "クッキー",
     "ft-terms": "利用規約",
     "cookie-title": "クッキーを使用しています",
     "cookie-body":

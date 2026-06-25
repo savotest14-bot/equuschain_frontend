@@ -33,7 +33,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3" defer></script>
 </head>
 
 <body>
@@ -370,13 +370,14 @@
                             style="color: var(--g3);">Chain</b><sup>™</sup></span>
                 </a>
                 <div class="ft-address">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="16" height="8" style="display: inline-block; vertical-align: middle; flex-shrink: 0; border-radius: 1px;">
-                        <rect width="150" height="300" fill="#d22630"/>
-                        <rect x="150" width="450" height="100" fill="#007a3d"/>
-                        <rect x="150" y="100" width="450" height="100" fill="#fff"/>
-                        <rect x="150" y="200" width="450" height="100" fill="#000"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="16" height="8"
+                        style="display: inline-block; vertical-align: middle; flex-shrink: 0; border-radius: 1px;">
+                        <rect width="150" height="300" fill="#d22630" />
+                        <rect x="150" width="450" height="100" fill="#007a3d" />
+                        <rect x="150" y="100" width="450" height="100" fill="#fff" />
+                        <rect x="150" y="200" width="450" height="100" fill="#000" />
                     </svg>
-                    <span>EquusChain Ltd, Al Maryah Island, Al Sarab Tower, Abu Dhabi, United Arab Emirates</span>
+                    <span>🇦🇪 EquusChain Ltd, ADGM, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
                 </div>
             </div>
             <div class="ft-cols">
@@ -391,7 +392,8 @@
                     <h5 data-tr="ft-col2-title">Contact</h5>
                     <ul>
                         <li><a href="mailto:compliance@equuschain.io" data-tr="opt-interest-8">General Enquiry</a></li>
-                        <li><a href="mailto:compliance@equuschain.io" data-tr="ft-col2-item3">Legal &amp; compliance</a></li>
+                        <li><a href="mailto:compliance@equuschain.io" data-tr="ft-col2-item3">Legal &amp; compliance</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -408,6 +410,7 @@
             <div class="ft-lnks">
                 <a href="#privacyModal" class="modal-trigger" data-tr="ft-privacy">Privacy</a>
                 <a href="#termsModal" class="modal-trigger" data-tr="ft-terms">Terms</a>
+                <a href="#cookiesModal" class="modal-trigger" data-tr="ft-cookies">Cookies</a>
             </div>
         </div>
     </footer>
@@ -427,7 +430,7 @@
                 <button id="acceptCookies" class="cookie-btn accept-btn" data-tr="cookie-accept">Accept non-essential
                     cookies</button>
             </div>
-            <a href="#privacyModal" class="cookie-link" id="cookieLearnMore" data-tr="cookie-link">Learn more about our
+            <a href="#cookiesModal" class="cookie-link modal-trigger" id="cookieLearnMore" data-tr="cookie-link">Learn more about our
                 cookies</a>
         </div>
     </div>
@@ -466,6 +469,24 @@
                 </p>
                 <p>3. <strong>Cookie Usage:</strong> We utilize essential cookies for safety and session persistence.
                     Analytical and marketing cookies are loaded strictly upon your explicit consent.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="cookiesTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCookies" aria-label="Close modal">&times;</button>
+            <h3 id="cookiesTitle">Cookie Policy</h3>
+            <div class="modal-body-content">
+                <p><strong>Effective Date: June 25, 2026</strong></p>
+                <p>EquusChain Ltd. uses cookies to recognize your device and deliver a secure, customized, and
+                    high-performance experience on our platform.</p>
+                <p>1. <strong>Essential Cookies:</strong> Required for platform security, user authentication, and basic
+                    functionality. These cannot be disabled.</p>
+                <p>2. <strong>Analytics &amp; Customization:</strong> Helps us understand user interactions and optimize
+                    features. Loaded only upon your explicit consent.</p>
+                <p>3. <strong>Managing Preferences:</strong> You can modify your consent settings at any time using
+                    browser controls or by resetting your choices on the website.</p>
             </div>
         </div>
     </div>
