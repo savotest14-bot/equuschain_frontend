@@ -1,5 +1,61 @@
 /* ─── EQUUSCHAIN GLOBAL INTERACTIVE SCRIPT ──────────────── */
 
+// Configurable Links for Legal Documents
+const LEGAL_LINKS = {
+  terms: "https://equuschain.io/terms",      // Placeholder or designated external URL for Terms & Conditions
+  privacy: "https://equuschain.io/privacy",  // Placeholder or designated external URL for Privacy Policy
+  cookies: "https://equuschain.io/cookies"   // Placeholder or designated external URL for Cookie Policy
+};
+
+// Safe localStorage helper to prevent SecurityError in restricted environments
+const safeStorage = {
+  getItem(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      return null;
+    }
+  },
+  setItem(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      // Ignore
+    }
+  },
+  removeItem(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+      // Ignore
+    }
+  }
+};
+
+function applyConfigurableLinks() {
+  // Update Terms & Conditions links
+  document.querySelectorAll('a[href*="termsModal"], a#termsLink, a[data-tr="ft-terms"]').forEach((el) => {
+    el.href = LEGAL_LINKS.terms;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+    el.classList.remove("modal-trigger");
+  });
+  // Update Privacy Policy links
+  document.querySelectorAll('a[href*="privacyModal"], a#privacyLink, a[data-tr="ft-privacy"]').forEach((el) => {
+    el.href = LEGAL_LINKS.privacy;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+    el.classList.remove("modal-trigger");
+  });
+  // Update Cookie Policy links
+  document.querySelectorAll('a[href*="cookiesModal"], a#cookieLearnMore, a[data-tr="ft-cookies"]').forEach((el) => {
+    el.href = LEGAL_LINKS.cookies;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+    el.classList.remove("modal-trigger");
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // ─── 1. CUSTOM CURSOR TRACKING (LERP & SMOOTH FOLLOW) ─────────────────
   const cursor = document.getElementById("custom-cursor");
@@ -237,12 +293,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load stored language or fallback to English
-  const storedLang = localStorage.getItem("equuschain_lang") || "en";
+  // Load stored language or url param or fallback to English
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLang = urlParams.get("lang");
+  const storedLang = urlLang || safeStorage.getItem("equuschain_lang") || "en";
   switchLanguage(storedLang);
 
   // Restore active dashboard panel on load if it exists in the DOM
-  const storedPanelId = localStorage.getItem("activeDashboardPanel");
+  const storedPanelId = safeStorage.getItem("activeDashboardPanel");
   if (storedPanelId && document.getElementById("panel-" + storedPanelId)) {
     showPanel(storedPanelId);
   }
@@ -253,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const refuseCookies = document.getElementById("refuseCookies");
 
   if (cookieBanner && acceptCookies && refuseCookies) {
-    const consentState = localStorage.getItem("equuschain_cookies_consent");
+    const consentState = safeStorage.getItem("equuschain_cookies_consent");
     if (!consentState) {
       setTimeout(() => {
         cookieBanner.style.display = "block";
@@ -263,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     acceptCookies.addEventListener("click", () => {
-      localStorage.setItem("equuschain_cookies_consent", "accepted");
+      safeStorage.setItem("equuschain_cookies_consent", "accepted");
       window.equuschain_analytics = true;
       cookieBanner.style.transition = "opacity 0.4s ease";
       cookieBanner.style.opacity = "0";
@@ -273,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     refuseCookies.addEventListener("click", () => {
-      localStorage.setItem("equuschain_cookies_consent", "refused");
+      safeStorage.setItem("equuschain_cookies_consent", "refused");
       window.equuschain_analytics = false;
       cookieBanner.style.transition = "opacity 0.4s ease";
       cookieBanner.style.opacity = "0";
@@ -283,80 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Public terms/privacy/cookies modals triggers
-  const termsModal = document.getElementById("termsModal");
-  const privacyModal = document.getElementById("privacyModal");
-  const cookiesModal = document.getElementById("cookiesModal");
-  const closeTerms = document.getElementById("closeTerms");
-  const closePrivacy = document.getElementById("closePrivacy");
-  const closeCookies = document.getElementById("closeCookies");
-
-  function showModal(modal) {
-    if (!modal) return;
-    modal.classList.add("show");
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function hideModal(modal) {
-    if (!modal) return;
-    modal.classList.remove("show");
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
-
-  // Delegated click handler for terms, privacy, and cookies modal triggers
-  document.addEventListener("click", (e) => {
-    const target = e.target;
-    if (target.closest("#termsLink")) {
-      e.preventDefault();
-      showModal(termsModal);
-    } else if (target.closest("#privacyLink")) {
-      e.preventDefault();
-      showModal(privacyModal);
-    } else if (target.closest("#cookieLearnMore")) {
-      e.preventDefault();
-      showModal(cookiesModal);
-    }
-  });
-
-  document
-    .querySelectorAll(".ft-lnks a, .modal-trigger")
-    .forEach((trigger) => {
-      trigger.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = trigger.getAttribute("href");
-        if (href === "#termsModal") {
-          showModal(termsModal);
-        } else if (href === "#privacyModal") {
-          showModal(privacyModal);
-        } else if (href === "#cookiesModal") {
-          showModal(cookiesModal);
-        }
-      });
-    });
-
-  if (closeTerms) {
-    closeTerms.addEventListener("click", () => hideModal(termsModal));
-  }
-  if (closePrivacy) {
-    closePrivacy.addEventListener("click", () => hideModal(privacyModal));
-  }
-  if (closeCookies) {
-    closeCookies.addEventListener("click", () => hideModal(cookiesModal));
-  }
-
-  [termsModal, privacyModal, cookiesModal].forEach((modal) => {
-    if (modal) {
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          hideModal(modal);
-        }
-      });
-    }
-  });
+  // Modals event handlers removed - legal pages replaced with configurable external links.
 
   // ─── 7. FORM VALIDATION & SUCCESS HANDLER ──────────────────────
   const accessForm = document.getElementById("accessForm");
@@ -428,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
             successDiv.style.opacity = "0";
             successDiv.style.transition = "opacity 0.6s ease";
 
-            const currentLang = localStorage.getItem("equuschain_lang") || "en";
+            const currentLang = safeStorage.getItem("equuschain_lang") || "en";
             let titleText = "Access Request Received";
             let bodyText =
               "Thank you for your inquiry. Our relations desk will review your credentials and contact you directly.";
@@ -550,6 +535,16 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", closeMobileMenu);
     });
   }
+
+  // Handle General Enquiry link click to pre-select "General Enquiry" in the contact form
+  document.querySelectorAll('a[href="#contact"][data-tr="opt-interest-8"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const selectEl = document.getElementById("form-interest");
+      if (selectEl) {
+        selectEl.value = "General Enquiry";
+      }
+    });
+  });
 });
 
 // ─── TRANSLATION SYSTEM ──────────────────────────────────────────
@@ -660,7 +655,7 @@ const translations = {
     "ft-col2-title": "Contact",
     "ft-col2-item1": "Investor relations",
     "ft-col2-item2": "Institutional desk",
-    "ft-col2-item3": "Legal & compliance",
+    "ft-col2-item3": "Legal & Compliance",
     "ft-disclaimer":
       "© 2026 EquusChain Ltd. All rights reserved. The information contained on this website is provided for informational purposes only and does not constitute investment, legal, tax, or financial advice, nor an offer or solicitation to buy or sell any security, financial instrument, or asset. Access to certain services and opportunities may be restricted based on jurisdiction, investor classification, and applicable laws. Investments involve risk, including the possible loss of capital. Users are responsible for ensuring compliance with the laws and regulations applicable to them.",
     "ft-privacy": "Privacy",
@@ -2206,7 +2201,20 @@ function switchLanguage(lang) {
   }
 
   // Store language selection
-  localStorage.setItem("equuschain_lang", lang);
+  safeStorage.setItem("equuschain_lang", lang);
+
+  // Update links back/forth between pages to preserve active language param
+  document.querySelectorAll('a[href*="login.html"], a[href*="index.html"], a[href*="dashboard.html"]').forEach((link) => {
+    try {
+      const href = link.getAttribute("href");
+      if (href) {
+        const base = href.split("?")[0];
+        link.setAttribute("href", `${base}?lang=${lang}`);
+      }
+    } catch (e) {
+      // Ignore
+    }
+  });
 
   // Update active class in dropdown options list
   document.querySelectorAll(".lang-option").forEach((opt) => {
@@ -2251,6 +2259,9 @@ function switchLanguage(lang) {
       }
     }
   }
+
+  // Apply the configured legal links to newly translated DOM elements
+  applyConfigurableLinks();
 }
 
 // ─── PRIVATE & GLOBAL LOGIC ───────────────────────────────────────
@@ -2283,12 +2294,14 @@ function switchTab(t) {
 
 // Access triggers
 function enterPlatform() {
-  window.location.href = "../private/dashboard.html";
+  const lang = safeStorage.getItem("equuschain_lang") || "en";
+  window.location.href = "../private/dashboard.html?lang=" + lang;
 }
 
 function logout() {
-  localStorage.removeItem("activeDashboardPanel");
-  window.location.href = "login.html";
+  safeStorage.removeItem("activeDashboardPanel");
+  const lang = safeStorage.getItem("equuschain_lang") || "en";
+  window.location.href = "login.html?lang=" + lang;
 }
 
 // Private navigation panels
@@ -2331,7 +2344,7 @@ function showPanel(id) {
   if (id === "tokenise") wizStep(1);
 
   // Persist active tab across refreshes
-  localStorage.setItem("activeDashboardPanel", id);
+  safeStorage.setItem("activeDashboardPanel", id);
 }
 
 // Wizard flow
