@@ -2,9 +2,9 @@
 
 // Configurable Links for Legal Documents
 const LEGAL_LINKS = {
-  terms: "https://equuschain.io/terms",      // Placeholder or designated external URL for Terms & Conditions
-  privacy: "https://equuschain.io/privacy",  // Placeholder or designated external URL for Privacy Policy
-  cookies: "https://equuschain.io/cookies"   // Placeholder or designated external URL for Cookie Policy
+  terms: "/terms.html",      // Placeholder or designated external URL for Terms & Conditions
+  privacy: "/privacy.html",  // Placeholder or designated external URL for Privacy Policy
+  cookies: "/cookies.html"   // Placeholder or designated external URL for Cookie Policy
 };
 
 // Safe localStorage helper to prevent SecurityError in restricted environments
@@ -33,23 +33,38 @@ const safeStorage = {
 };
 
 function applyConfigurableLinks() {
+  let termsUrl = LEGAL_LINKS.terms;
+  let privacyUrl = LEGAL_LINKS.privacy;
+  let cookiesUrl = LEGAL_LINKS.cookies;
+
+  // Local file:// protocol fallback to prevent 404s/file-not-found when testing locally
+  if (window.location.protocol === "file:") {
+    const path = window.location.pathname.replace(/\\/g, "/");
+    const isSubdir = path.includes("/private/");
+    const prefix = isSubdir ? "../" : "./";
+    
+    if (termsUrl.startsWith("/")) termsUrl = prefix + termsUrl.substring(1);
+    if (privacyUrl.startsWith("/")) privacyUrl = prefix + privacyUrl.substring(1);
+    if (cookiesUrl.startsWith("/")) cookiesUrl = prefix + cookiesUrl.substring(1);
+  }
+
   // Update Terms & Conditions links
   document.querySelectorAll('a[href*="termsModal"], a#termsLink, a[data-tr="ft-terms"]').forEach((el) => {
-    el.href = LEGAL_LINKS.terms;
+    el.href = termsUrl;
     el.target = "_blank";
     el.rel = "noopener noreferrer";
     el.classList.remove("modal-trigger");
   });
   // Update Privacy Policy links
   document.querySelectorAll('a[href*="privacyModal"], a#privacyLink, a[data-tr="ft-privacy"]').forEach((el) => {
-    el.href = LEGAL_LINKS.privacy;
+    el.href = privacyUrl;
     el.target = "_blank";
     el.rel = "noopener noreferrer";
     el.classList.remove("modal-trigger");
   });
   // Update Cookie Policy links
   document.querySelectorAll('a[href*="cookiesModal"], a#cookieLearnMore, a[data-tr="ft-cookies"]').forEach((el) => {
-    el.href = LEGAL_LINKS.cookies;
+    el.href = cookiesUrl;
     el.target = "_blank";
     el.rel = "noopener noreferrer";
     el.classList.remove("modal-trigger");
@@ -661,6 +676,10 @@ const translations = {
     "ft-privacy": "Privacy",
     "ft-cookies": "Cookies",
     "ft-terms": "Terms",
+    "privacy-title": "Privacy Policy",
+    "terms-title": "Terms & Conditions",
+    "cookies-title": "Cookie Policy",
+    "legal-placeholder-body": "This document will be available soon.",
     "cookie-title": "We use cookies",
     "cookie-body":
       "We use cookies to improve your experience, analyze site usage, and, if you wish, to offer you personalized content and offers. Some cookies are essential for the site to function (session, security). Other cookies (analytics, marketing, tracking) require your prior consent.",
@@ -808,6 +827,10 @@ const translations = {
     "ft-privacy": "Confidentialité",
     "ft-cookies": "Cookies",
     "ft-terms": "Conditions",
+    "privacy-title": "Politique de Confidentialité",
+    "terms-title": "Conditions Générales",
+    "cookies-title": "Politique relative aux Cookies",
+    "legal-placeholder-body": "Ce document sera disponible bientôt.",
     "cookie-title": "Nous utilisons des cookies",
     "cookie-body":
       "Nous utilisons des cookies pour améliorer votre expérience, analyser l'utilisation du site et vous proposer des offres adaptées. Certains cookies sont essentiels pour le fonctionnement (sécurité, session). D'autres cookies nécessitent votre consentement préalable.",
@@ -951,6 +974,10 @@ const translations = {
     "ft-privacy": "الخصوصية",
     "ft-cookies": "الكوكيز",
     "ft-terms": "الشروط",
+    "privacy-title": "سياسة الخصوصية",
+    "terms-title": "الشروط والأحكام",
+    "cookies-title": "سياسة ملفات تعريف الارتباط",
+    "legal-placeholder-body": "هذا المستند سيكون متاحاً قريباً.",
     "cookie-title": "نحن نستخدم الكوكيز",
     "cookie-body":
       "نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل الاستخدام وتقديم محتوى مخصص. بعض ملفات تعريف الارتباط ضرورية لتشغيل الموقع (الأمان والجلسة) بينما تتطلب الملفات الأخرى موافقتك المسبقة.",
@@ -1092,6 +1119,10 @@ const translations = {
     "ft-privacy": "Privacy",
     "ft-cookies": "Cookie",
     "ft-terms": "Termini",
+    "privacy-title": "Informativa sulla Privacy",
+    "terms-title": "Termini e Condizioni",
+    "cookies-title": "Informativa sui Cookie",
+    "legal-placeholder-body": "Questo documento sarà disponibile presto.",
     "cookie-title": "Utilizziamo i cookie",
     "cookie-body":
       "Utilizziamo i cookie per migliorare l'esperienza, analizzare l'uso del sito e offrire contenuti personalizzati. Alcuni cookie sono essenziali per il funzionamento (sicurezza, sessione). Altri richiedono il tuo preventivo consenso.",
@@ -1236,6 +1267,10 @@ const translations = {
     "ft-privacy": "Privacidad",
     "ft-cookies": "Cookies",
     "ft-terms": "Términos",
+    "privacy-title": "Política de Privacidad",
+    "terms-title": "Términos y Condiciones",
+    "cookies-title": "Política de Cookies",
+    "legal-placeholder-body": "Este documento estará disponible pronto.",
     "cookie-title": "Usamos cookies",
     "cookie-body":
       "Utilizamos cookies para mejorar la experiencia, analizar el uso del sitio y ofrecer contenido personalizado. Algunas cookies son esenciales para el funcionamiento (seguridad, sesión). Otras requieren su consentimiento previo.",
@@ -1380,6 +1415,10 @@ const translations = {
     "ft-privacy": "Datenschutz",
     "ft-cookies": "Cookies",
     "ft-terms": "Bedingungen",
+    "privacy-title": "Datenschutzerklärung",
+    "terms-title": "Allgemeine Geschäftsbedingungen",
+    "cookies-title": "Cookie-Richtlinie",
+    "legal-placeholder-body": "Dieses Dokument ist in Kürze verfügbar.",
     "cookie-title": "Wir verwenden Cookies",
     "cookie-body":
       "Wir verwenden Cookies, um Ihre Nutzererfahrung zu verbessern, die Website-Nutzung zu analysieren und Ihnen personalisierte Angebote zu unterbreiten. Einige Cookies sind essenziell, andere erfordern Ihre Zustimmung.",
@@ -1523,6 +1562,10 @@ const translations = {
     "ft-privacy": "Privacidade",
     "ft-cookies": "Cookies",
     "ft-terms": "Termos",
+    "privacy-title": "Política de Privacidade",
+    "terms-title": "Termos e Condições",
+    "cookies-title": "Política de Cookies",
+    "legal-placeholder-body": "Este documento estará disponível em breve.",
     "cookie-title": "Usamos cookies",
     "cookie-body":
       "Usamos cookies para melhorar sua experiência, analisar o uso do site e oferecer conteúdo e ofertas personalizadas. Alguns cookies são essenciais, outros requerem consentimento prévio.",
@@ -1670,6 +1713,10 @@ const translations = {
     "ft-privacy": "Конфиденциальность",
     "ft-cookies": "Файлы cookie",
     "ft-terms": "Правила",
+    "privacy-title": "Политика конфиденциальности",
+    "terms-title": "Правила и условия",
+    "cookies-title": "Политика использования файлов cookie",
+    "legal-placeholder-body": "Этот документ будет доступен в ближайшее время.",
     "cookie-title": "Мы используем файлы cookie",
     "cookie-body":
       "Мы используем файлы cookie для улучшения работы сайта, анализа трафика и показа персонализированных предложений. Некоторые файлы cookie обязательны для безопасности.",
@@ -1811,6 +1858,10 @@ const translations = {
     "ft-privacy": "隐私政策",
     "ft-cookies": "Cookie",
     "ft-terms": "使用条款",
+    "privacy-title": "隐私政策",
+    "terms-title": "条款与条件",
+    "cookies-title": "Cookie 政策",
+    "legal-placeholder-body": "此文件即将推出。",
     "cookie-title": "我们使用 Cookie",
     "cookie-body":
       "我们使用 Cookie 来优化用户体验、分析网站流量以及提供个性化内容。某些 Cookie 对于网站的运行必不可少，而其他 Cookie 则需获得您的事先同意。",
@@ -1953,6 +2004,10 @@ const translations = {
     "ft-privacy": "गोपनीयता",
     "ft-cookies": "कुकीज़",
     "ft-terms": "नियम",
+    "privacy-title": "गोपनीयता नीति",
+    "terms-title": "नियम और शर्तें",
+    "cookies-title": "कुकी नीति",
+    "legal-placeholder-body": "यह दस्तावेज़ जल्द ही उपलब्ध होगा।",
     "cookie-title": "हम कुकीज़ का उपयोग करते हैं",
     "cookie-body":
       "हम आपके अनुभव को बेहतर बनाने, साइट उपयोग का विश्लेषण करने और व्यक्तिगत सामग्री प्रदान करने के लिए कुकीज़ का उपयोग करते हैं। कुछ कुकीज़ आवश्यक हैं, अन्य के लिए आपकी सहमति आवश्यक है।",
@@ -2095,6 +2150,10 @@ const translations = {
     "ft-privacy": "プライバシー",
     "ft-cookies": "クッキー",
     "ft-terms": "利用規約",
+    "privacy-title": "プライバシーポリシー",
+    "terms-title": "利用規約",
+    "cookies-title": "クッキーポリシー",
+    "legal-placeholder-body": "このドキュメントは間もなく利用可能になります。",
     "cookie-title": "クッキーを使用しています",
     "cookie-body":
       "当サイトでは、ユーザー体験の向上、サイト利用状況の分析、パーソナライズされたコンテンツや提案の提供のためにクッキーを使用しています。一部のクッキーは必須ですが、その他は事前の同意が必要です。",
