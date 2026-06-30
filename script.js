@@ -679,6 +679,7 @@ const translations = {
     "privacy-title": "Privacy Policy",
     "terms-title": "Terms & Conditions",
     "cookies-title": "Cookie Policy",
+    "legal-draft-notice": "Draft / placeholder , not yet legally binding. Final version to follow.",
     "legal-placeholder-body": "This document will be available soon.",
     "cookie-title": "We use cookies",
     "cookie-body":
@@ -830,6 +831,7 @@ const translations = {
     "privacy-title": "Politique de Confidentialité",
     "terms-title": "Conditions Générales",
     "cookies-title": "Politique relative aux Cookies",
+    "legal-draft-notice": "Projet / espace réservé , non contractuel. Version finale à venir.",
     "legal-placeholder-body": "Ce document sera disponible bientôt.",
     "cookie-title": "Nous utilisons des cookies",
     "cookie-body":
@@ -977,6 +979,7 @@ const translations = {
     "privacy-title": "سياسة الخصوصية",
     "terms-title": "الشروط والأحكام",
     "cookies-title": "سياسة ملفات تعريف الارتباط",
+    "legal-draft-notice": "مسودة / نص مؤقت ، غير ملزم قانوناً. النسخة النهائية ستصدر قريباً.",
     "legal-placeholder-body": "هذا المستند سيكون متاحاً قريباً.",
     "cookie-title": "نحن نستخدم الكوكيز",
     "cookie-body":
@@ -1122,6 +1125,7 @@ const translations = {
     "privacy-title": "Informativa sulla Privacy",
     "terms-title": "Termini e Condizioni",
     "cookies-title": "Informativa sui Cookie",
+    "legal-draft-notice": "Bozza / segnaposto , non ancora legalmente vincolante. Versione finale a seguire.",
     "legal-placeholder-body": "Questo documento sarà disponibile presto.",
     "cookie-title": "Utilizziamo i cookie",
     "cookie-body":
@@ -1270,6 +1274,7 @@ const translations = {
     "privacy-title": "Política de Privacidad",
     "terms-title": "Términos y Condiciones",
     "cookies-title": "Política de Cookies",
+    "legal-draft-notice": "Borrador / marcador de posición , no vinculante legalmente todavía. Versión final a continuación.",
     "legal-placeholder-body": "Este documento estará disponible pronto.",
     "cookie-title": "Usamos cookies",
     "cookie-body":
@@ -1418,6 +1423,7 @@ const translations = {
     "privacy-title": "Datenschutzerklärung",
     "terms-title": "Allgemeine Geschäftsbedingungen",
     "cookies-title": "Cookie-Richtlinie",
+    "legal-draft-notice": "Entwurf / Platzhalter , noch nicht rechtsverbindlich. Die endgültige Version folgt.",
     "legal-placeholder-body": "Dieses Dokument ist in Kürze verfügbar.",
     "cookie-title": "Wir verwenden Cookies",
     "cookie-body":
@@ -1565,6 +1571,7 @@ const translations = {
     "privacy-title": "Política de Privacidade",
     "terms-title": "Termos e Condições",
     "cookies-title": "Política de Cookies",
+    "legal-draft-notice": "Rascunho / marcador de posição , ainda não juridicamente vinculativo. Versão final a seguir.",
     "legal-placeholder-body": "Este documento estará disponível em breve.",
     "cookie-title": "Usamos cookies",
     "cookie-body":
@@ -1716,6 +1723,7 @@ const translations = {
     "privacy-title": "Политика конфиденциальности",
     "terms-title": "Правила и условия",
     "cookies-title": "Политика использования файлов cookie",
+    "legal-draft-notice": "Черновик / плейсхолдер , пока не имеет юридической силы. Окончательная версия последует.",
     "legal-placeholder-body": "Этот документ будет доступен в ближайшее время.",
     "cookie-title": "Мы используем файлы cookie",
     "cookie-body":
@@ -1861,6 +1869,7 @@ const translations = {
     "privacy-title": "隐私政策",
     "terms-title": "条款与条件",
     "cookies-title": "Cookie 政策",
+    "legal-draft-notice": "草案 / 占位符 , 尚无法律约束力。最终版本即将推出。",
     "legal-placeholder-body": "此文件即将推出。",
     "cookie-title": "我们使用 Cookie",
     "cookie-body":
@@ -2007,6 +2016,7 @@ const translations = {
     "privacy-title": "गोपनीयता नीति",
     "terms-title": "नियम और शर्तें",
     "cookies-title": "कुकी नीति",
+    "legal-draft-notice": "प्रारूप / प्लेसहोल्डर , अभी तक कानूनी रूप से बाध्यकारी नहीं है। अंतिम संस्करण जल्द ही आएगा।",
     "legal-placeholder-body": "यह दस्तावेज़ जल्द ही उपलब्ध होगा।",
     "cookie-title": "हम कुकीज़ का उपयोग करते हैं",
     "cookie-body":
@@ -2153,6 +2163,7 @@ const translations = {
     "privacy-title": "プライバシーポリシー",
     "terms-title": "利用規約",
     "cookies-title": "クッキーポリシー",
+    "legal-draft-notice": "草案 / プレースホルダー , （法的拘束力はありません）。最終版は後日掲載されます。",
     "legal-placeholder-body": "このドキュメントは間もなく利用可能になります。",
     "cookie-title": "クッキーを使用しています",
     "cookie-body":
